@@ -22,6 +22,7 @@ type SmartFormProps<T extends FieldValues> = {
   fields: FieldConfig<T>[];
   onSubmit: SubmitHandler<T>;
   defaultValues?: DefaultValues<T>;
+  buttonText?: string;
 };
 
 export function Form<T extends FieldValues>({
@@ -29,6 +30,7 @@ export function Form<T extends FieldValues>({
   fields,
   onSubmit,
   defaultValues,
+  buttonText = "Отправить",
 }: SmartFormProps<T>) {
   const {
     register,
@@ -57,7 +59,7 @@ export function Form<T extends FieldValues>({
         </div>
       ))}
 
-      <button type="submit">Отправить</button>
+      <button type="submit">{buttonText}</button>
     </form>
   );
 }

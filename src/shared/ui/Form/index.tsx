@@ -8,6 +8,7 @@ import {
 import { ZodSchema } from "zod";
 import "./index.scss";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Input } from "../Input";
 
 type FieldType = "text" | "email" | "number" | "password";
 
@@ -46,10 +47,10 @@ export function Form<T extends FieldValues>({
       {fields.map((field) => (
         <div className="form-field" key={field.toString()}>
           <label>{field.label}</label>
-          <input
+          <Input
             type={field.type}
             {...register(field.name)}
-            className={errors[field.name] ? "error" : ""}
+            className={errors[field.name] ? "input error" : "input"}
           />
           {errors[field.name] && (
             <p className="error-message">

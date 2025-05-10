@@ -1,5 +1,13 @@
 @use "../../styles/variables.scss" as *;
 
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
 .field {
   margin-bottom: 1.5rem;
 
@@ -43,7 +51,7 @@ button {
   border: none;
   width: 100%;
   margin-top: 1rem;
-  border-radius: 4px;
+  border-radius: 10px;
   cursor: pointer;
 
   &:hover {

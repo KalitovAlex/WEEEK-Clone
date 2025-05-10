@@ -43,7 +43,7 @@ export function Form<T extends FieldValues>({
   });
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form className="form" onSubmit={handleSubmit(onSubmit)}>
       {fields.map((field) => (
         <div className="form-field" key={field.toString()}>
           <label>{field.label}</label>

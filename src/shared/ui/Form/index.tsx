@@ -10,6 +10,7 @@ import "./index.scss";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "../Input";
 import { Button } from "../Button";
+import type { ReactNode } from "react";
 
 type FieldType = "text" | "email" | "number" | "password";
 
@@ -17,6 +18,8 @@ type FieldConfig<T extends FieldValues> = {
   name: Path<T>;
   label: string;
   type: FieldType;
+  icon?: ReactNode;
+  iconPosition?: "left" | "right";
 };
 
 type SmartFormProps<T extends FieldValues> = {
@@ -47,10 +50,11 @@ export function Form<T extends FieldValues>({
     <form className="form" onSubmit={handleSubmit(onSubmit)}>
       {fields.map((field) => (
         <div className="form-field" key={field.toString()}>
-          <label>{field.label}</label>
           <Input
             type={field.type}
             placeholder={field.label}
+            icon={field.icon}
+            iconPosition={field.iconPosition ?? "left"}
             {...register(field.name)}
             className={errors[field.name] ? "input error" : "input"}
           />

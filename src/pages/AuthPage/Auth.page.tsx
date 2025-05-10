@@ -2,6 +2,7 @@ import { Logo } from "@/shared/ui/Logo";
 import "./Auth.page.scss";
 import { Form } from "@/shared/ui/Form";
 import { z } from "node_modules/zod/lib";
+import { Mail } from "lucide-react";
 
 export const AuthPage = () => {
   return (
@@ -18,6 +19,7 @@ export const AuthPage = () => {
               name: "email",
               label: "Email",
               type: "email",
+              icon: <Mail />,
             },
           ]}
           onSubmit={() => {}}

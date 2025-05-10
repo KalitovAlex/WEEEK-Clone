@@ -9,6 +9,7 @@ import { ZodSchema } from "zod";
 import "./index.scss";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "../Input";
+import { Button } from "../Button";
 
 type FieldType = "text" | "email" | "number" | "password";
 
@@ -49,6 +50,7 @@ export function Form<T extends FieldValues>({
           <label>{field.label}</label>
           <Input
             type={field.type}
+            placeholder={field.label}
             {...register(field.name)}
             className={errors[field.name] ? "input error" : "input"}
           />
@@ -60,7 +62,7 @@ export function Form<T extends FieldValues>({
         </div>
       ))}
 
-      <button type="submit">{buttonText}</button>
+      <Button type="submit">{buttonText}</Button>
     </form>
   );
 }

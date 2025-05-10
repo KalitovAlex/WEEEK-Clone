@@ -1,13 +1,16 @@
 import "react-router-dom";
 
 export const ROUTES = {
-  AUTH: "/auth",
+  LOGIN: "/login",
   REGISTER: "/register",
   HOME: "/",
 } as const;
 
 export type PathParams = {
-  [ROUTES.AUTH]: {
+  [ROUTES.LOGIN]: {
+    authId: string;
+  };
+  [ROUTES.REGISTER]: {
     authId: string;
   };
 };

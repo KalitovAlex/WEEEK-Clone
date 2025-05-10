@@ -9,7 +9,15 @@ export const router = createBrowserRouter([
     children: [
       {
         path: ROUTES.HOME,
-        lazy: () => import("@/pages/Home.page.tsx"),
+        lazy: () => import("@/pages/HomePage/Home.page"),
+      },
+      {
+        path: ROUTES.LOGIN,
+        lazy: () => import("@/pages/AuthPage/Auth.page"),
+      },
+      {
+        path: ROUTES.REGISTER,
+        lazy: () => import("@/pages/RegisterPage/Register.page"),
       },
     ],
   },

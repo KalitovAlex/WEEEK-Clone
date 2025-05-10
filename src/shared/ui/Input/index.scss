@@ -1,0 +1,16 @@
+@use "../../styles/variables.scss" as *;
+
+.input {
+  width: 100%;
+  padding: 0.8rem 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  transition: 0.2s;
+  &:focus {
+    border-color: $primary-color;
+    outline: none;
+  }
+  &:hover {
+    border-color: $primary-color;
+  }
+}

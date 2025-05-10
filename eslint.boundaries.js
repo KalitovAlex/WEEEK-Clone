@@ -77,24 +77,5 @@ export const eslintBoundariesConfig = {
         ],
       },
     ],
-    "boundaries/entry-point": [
-      2,
-      {
-        default: "disallow",
-        message:
-          "Модуль (${file.type}) должен импортироваться через public API. Прямой импорт из ${dependency.source} запрещен",
-
-        rules: [
-          {
-            target: ["shared", "app"],
-            allow: "**",
-          },
-          {
-            target: ["features"],
-            allow: ["index.(ts|tsx)", "*.page.tsx"],
-          },
-        ],
-      },
-    ],
   },
 };

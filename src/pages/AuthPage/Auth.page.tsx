@@ -1,29 +1,33 @@
-import { Logo } from "@/shared/ui/Logo";
 import "./Auth.page.scss";
-import { Form } from "@/shared/ui/Form";
-import { z } from "node_modules/zod/lib";
+import { AuthForm } from "@/features/Auth/ui/AuthForm";
+import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
+import { ROUTES } from "@/shared/model/routes";
+import { AuthPagesWrapper } from "@/widgets/Auth/ui/AuthWrapper";
 
 export const AuthPage = () => {
+  const { t } = useTranslation();
+  const navigate = useNavigate();
+
   return (
-    <div className="auth-page">
-      <div className="auth-page__form">
-        <Logo />
-        <Form
-          schema={z.object({
-            email: z.string().email(),
-            password: z.string().min(8),
-          })}
-          fields={[
-            {
-              name: "email",
-              label: "Email",
-              type: "email",
-            },
-          ]}
-          onSubmit={() => {}}
-        />
-      </div>
-    </div>
+    <AuthPagesWrapper
+      form={<AuthForm />}
+      header={{
+        title: t("auth.title"),
+        actionButton: {
+          text: t("auth.forgotPassword"),
+          onClick: () => {},
+        },
+      }}
+      footer={{
+        text: t("auth.dontHaveAccount"),
+        actionButton: {
+          text: t("auth.register.title"),
+          onClick: () => navigate(ROUTES.REGISTER),
+        },
+      }}
+      footerText={t("auth.footer.title")}
+    />
   );
 };
 

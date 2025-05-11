@@ -1,6 +1,21 @@
+@use "../../styles/variables.scss" as *;
+
 .button {
-  background-color: #000;
+  background-color: $primary-color;
   color: #fff;
-  padding: 10px 20px;
-  border-radius: 5px;
+  padding: 12px 20px;
+  border-radius: 10px;
+  width: 100%;
+  cursor: pointer;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    background-color: $primary-color-hover;
+  }
 }

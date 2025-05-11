@@ -10,6 +10,8 @@ import "./index.scss";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "../Input";
 import { Button } from "../Button";
+import type { ReactNode } from "react";
+import i18n from "@/shared/i18n";
 
 type FieldType = "text" | "email" | "number" | "password";
 
@@ -17,6 +19,8 @@ type FieldConfig<T extends FieldValues> = {
   name: Path<T>;
   label: string;
   type: FieldType;
+  icon?: ReactNode;
+  iconPosition?: "left" | "right";
 };
 
 type SmartFormProps<T extends FieldValues> = {
@@ -25,6 +29,7 @@ type SmartFormProps<T extends FieldValues> = {
   onSubmit: SubmitHandler<T>;
   defaultValues?: DefaultValues<T>;
   buttonText?: string;
+  isLoading?: boolean;
 };
 
 export function Form<T extends FieldValues>({
@@ -32,7 +37,8 @@ export function Form<T extends FieldValues>({
   fields,
   onSubmit,
   defaultValues,
-  buttonText = "Отправить",
+  buttonText = i18n.t("send"),
+  isLoading = false,
 }: SmartFormProps<T>) {
   const {
     register,
@@ -46,11 +52,12 @@ export function Form<T extends FieldValues>({
   return (
     <form className="form" onSubmit={handleSubmit(onSubmit)}>
       {fields.map((field) => (
-        <div className="form-field" key={field.toString()}>
-          <label>{field.label}</label>
+        <div className="form-field" key={field.name}>
           <Input
             type={field.type}
             placeholder={field.label}
+            icon={field.icon}
+            iconPosition={field.iconPosition ?? "left"}
             {...register(field.name)}
             className={errors[field.name] ? "input error" : "input"}
           />
@@ -62,7 +69,9 @@ export function Form<T extends FieldValues>({
         </div>
       ))}
 
-      <Button type="submit">{buttonText}</Button>
+      <Button type="submit" isLoading={isLoading}>
+        {buttonText}
+      </Button>
     </form>
   );
 }

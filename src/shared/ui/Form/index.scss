@@ -6,60 +6,43 @@
   justify-content: center;
   align-items: center;
   width: 100%;
+  min-width: 30vw;
+
+  gap: 1rem;
+  &-field {
+    width: 100%;
+    * {
+      box-sizing: border-box;
+    }
+  }
 }
 
 .field {
   margin-bottom: 1.5rem;
+  width: 100%;
 
   label {
     font-weight: 600;
     display: block;
     margin-bottom: 0.25rem;
   }
-  input {
-    width: 100%;
-    padding: 0.5rem 0.75rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    transition: 0.2s ease-in-out;
-
-    &:hover {
-      border-color: $primary-color;
-    }
-
-    &:focus {
-      border-color: $primary-color;
-      outline: none;
-    }
-
-    &.error {
-      border-color: #e63946;
-    }
-  }
-
-  .error-message {
-    color: #e63946;
-    font-size: 0.875rem;
-    margin-top: 0.25rem;
-  }
 }
 
-button {
-  background: $primary-color;
-  color: white;
-  padding: 0.6rem 1.25rem;
-  border: none;
-  width: 100%;
-  margin-top: 1rem;
-  border-radius: 10px;
-  cursor: pointer;
-
-  &:hover {
-    background: $primary-color;
-  }
+.error-message {
+  color: #e63946;
+  transition: color 0.3s ease, opacity 0.3s ease;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  animation: error-message-animation 0.3s ease;
+  opacity: 1;
 }
 
-.form-field {
-  display: flex;
-  flex-direction: column;
+@keyframes error-message-animation {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }

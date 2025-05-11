@@ -1,15 +1,20 @@
+import "./index.scss";
+import { Loader } from "../Loader";
+
 export const Button = ({
   children,
   type,
   onClick,
+  isLoading,
 }: {
   children: React.ReactNode;
   type: "button" | "submit" | "reset";
   onClick?: () => void;
+  isLoading?: boolean;
 }) => {
   return (
     <button className="button" type={type} onClick={onClick}>
-      {children}
+      {isLoading ? <Loader /> : children}
     </button>
   );
 };

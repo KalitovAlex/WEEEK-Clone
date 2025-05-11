@@ -1,10 +1,11 @@
 import { makeObservable, observable, action } from "mobx";
 
-export class ApiStore {
+export class ApiStore<T> {
   isLoading = false;
   isError = false;
   error: string | null = null;
   isSuccess = false;
+  response: T | null = null;
 
   constructor() {
     makeObservable(this, {

@@ -8,6 +8,8 @@ import { toast } from "sonner";
 import type { RegisterPayload } from "@/entities/Auth";
 import { ROUTES } from "@/shared/model/routes";
 import { useNavigate } from "react-router";
+import { setCookie } from "@/shared/utils/cookie";
+import { TOKEN } from "@/shared/constants/api";
 
 export const RegisterForm = () => {
   const { t } = useTranslation();
@@ -19,6 +21,7 @@ export const RegisterForm = () => {
 
     if (authStore.isSuccess) {
       toast.success(t("auth.register.success"));
+      setCookie(TOKEN, authStore.response?.token || "");
       navigate(ROUTES.HOME);
     } else {
       toast.error(authStore.error || t("auth.register.error"));

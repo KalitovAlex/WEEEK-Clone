@@ -8,4 +8,7 @@ export const authApi = {
   register: (payload: RegisterPayload) => {
     return api.post("auth/register", payload);
   },
+  me: () => {
+    return api.get("auth/me");
+  },
 };

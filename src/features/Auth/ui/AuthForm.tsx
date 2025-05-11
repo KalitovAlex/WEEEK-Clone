@@ -6,6 +6,7 @@ import { useTranslation } from "react-i18next";
 
 export const AuthForm = () => {
   const { t } = useTranslation();
+
   return (
     <div className="auth-form">
       <Form
@@ -24,7 +25,7 @@ export const AuthForm = () => {
             icon: <Lock size={20} />,
           },
         ]}
-        onSubmit={() => {}}
+        onSubmit={async () => {}}
       />
     </div>
   );

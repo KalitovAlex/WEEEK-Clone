@@ -2,8 +2,10 @@ import "./AuthForm.scss";
 import { Form } from "@/shared/ui/Form";
 import { Lock, Mail } from "lucide-react";
 import { authFormSchema } from "../model/types";
+import { useTranslation } from "react-i18next";
 
 export const AuthForm = () => {
+  const { t } = useTranslation();
   return (
     <div className="auth-form">
       <Form
@@ -11,13 +13,13 @@ export const AuthForm = () => {
         fields={[
           {
             name: "email",
-            label: "Email",
+            label: t("email"),
             type: "email",
             icon: <Mail size={20} />,
           },
           {
             name: "password",
-            label: "Password",
+            label: t("password"),
             type: "password",
             icon: <Lock size={20} />,
           },

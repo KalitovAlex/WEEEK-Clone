@@ -1,4 +1,4 @@
-import { RegisterForm } from "@/features/Register/ui/RegisterForm";
+import { RegisterForm } from "@/features/Auth/ui/RegisterForm";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "@/shared/model/routes";

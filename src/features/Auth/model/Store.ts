@@ -1,6 +1,6 @@
 import { makeAutoObservable } from "mobx";
 import { fromPromise } from "mobx-utils";
-import { authApi } from "../api";
+import { authApi } from "../../../entities/Auth/api";
 import type { AuthPayload, RegisterPayload } from "@/entities/Auth/model";
 import type { IPromiseBasedObservable } from "mobx-utils";
 import type { User } from "@/entities/User";

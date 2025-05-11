@@ -30,6 +30,19 @@
 
 .error-message {
   color: #e63946;
+  transition: color 0.3s ease, opacity 0.3s ease;
   font-size: 0.875rem;
   margin-top: 0.25rem;
+  animation: error-message-animation 0.3s ease;
+  opacity: 1;
+}
+
+@keyframes error-message-animation {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }

@@ -6,13 +6,11 @@ import type {
   AuthResponse,
   RegisterPayload,
 } from "@/entities/Auth/model";
-import type { IPromiseBasedObservable } from "mobx-utils";
-import type { User } from "@/entities/User";
 import { AxiosError } from "axios";
 import i18n from "@/shared/i18n";
 
-class AuthStore extends ApiStore<AuthResponse> {
-  data: IPromiseBasedObservable<User> | null = null;
+class AuthStore extends ApiStore {
+  data: AuthResponse | null = null;
 
   constructor() {
     super();
@@ -28,8 +26,9 @@ class AuthStore extends ApiStore<AuthResponse> {
       this.startLoading();
 
       const response = await authApi.login(payload);
-      const user = response.data;
-      this.data = user;
+      const responseData = response.data;
+      this.data = responseData;
+
       runInAction(() => {
         this.handleSuccess();
       });
@@ -49,8 +48,8 @@ class AuthStore extends ApiStore<AuthResponse> {
       this.startLoading();
 
       const response = await authApi.register(payload);
-      const user = response.data;
-      this.data = user;
+      const responseData = response.data;
+      this.data = responseData;
 
       runInAction(() => {
         this.handleSuccess();
@@ -65,11 +64,15 @@ class AuthStore extends ApiStore<AuthResponse> {
       });
     }
   };
+
   me = async () => {
     try {
       this.startLoading();
+
       const response = await authApi.me();
-      this.data = response.data;
+      const responseData = response.data;
+      this.data = responseData;
+
       runInAction(() => {
         this.handleSuccess();
       });

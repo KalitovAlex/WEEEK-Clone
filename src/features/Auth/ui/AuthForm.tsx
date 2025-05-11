@@ -9,6 +9,8 @@ import type { AuthPayload } from "@/entities/Auth";
 import { useNavigate } from "react-router";
 import { ROUTES } from "@/shared/model/routes";
 import { toast } from "sonner";
+import { setCookie } from "@/shared/utils/cookie";
+import { TOKEN } from "@/shared/constants/api";
 
 export const AuthForm = observer(() => {
   const { t } = useTranslation();
@@ -19,6 +21,7 @@ export const AuthForm = observer(() => {
 
     if (authStore.isSuccess) {
       toast.success(t("auth.success"));
+      setCookie(TOKEN, authStore.data?.token || "");
       navigate(ROUTES.HOME);
     } else {
       toast.error(authStore.error || t("auth.error"));

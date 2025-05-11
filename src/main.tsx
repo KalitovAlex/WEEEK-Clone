@@ -1,5 +1,6 @@
 import "@/shared/styles/globals.scss";
 import "./shared/i18n";
+import "./shared/configs/mobx";
 
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";

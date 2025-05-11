@@ -21,7 +21,7 @@ export const RegisterForm = () => {
 
     if (authStore.isSuccess) {
       toast.success(t("auth.register.success"));
-      setCookie(TOKEN, authStore.response?.token || "");
+      setCookie(TOKEN, authStore.data?.token || "");
       navigate(ROUTES.HOME);
     } else {
       toast.error(authStore.error || t("auth.register.error"));

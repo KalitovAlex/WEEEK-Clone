@@ -7,6 +7,8 @@ export const ru = {
   auth: {
     title: "Авторизация",
     register: "Зарегистрироваться",
+    success: "Вы успешно вошли в систему",
+    error: "Неверный email или пароль",
     forgotPassword: "Забыли пароль?",
     dontHaveAccount: "У вас еще нет аккаунта?",
     alreadyHaveAccount: "Уже есть аккаунт?",

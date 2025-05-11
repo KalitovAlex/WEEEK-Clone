@@ -7,6 +7,8 @@ export const en = {
   auth: {
     title: "Authorization",
     register: "Register",
+    success: "You have successfully logged in",
+    error: "Invalid email or password",
     forgotPassword: "Forgot password?",
     dontHaveAccount: "Don't have an account?",
     alreadyHaveAccount: "Already have an account?",

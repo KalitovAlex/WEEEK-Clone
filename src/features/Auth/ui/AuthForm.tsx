@@ -8,6 +8,7 @@ import { authStore } from "../model";
 import type { AuthPayload } from "@/entities/Auth";
 import { useNavigate } from "react-router";
 import { ROUTES } from "@/shared/model/routes";
+import { toast } from "sonner";
 
 export const AuthForm = observer(() => {
   const { t } = useTranslation();
@@ -17,7 +18,10 @@ export const AuthForm = observer(() => {
     await authStore.auth(data);
 
     if (authStore.isSuccess) {
+      toast.success(t("auth.success"));
       navigate(ROUTES.HOME);
+    } else {
+      toast.error(authStore.error || t("auth.error"));
     }
   };
 
@@ -25,6 +29,7 @@ export const AuthForm = observer(() => {
     <div className="auth-form">
       <Form
         schema={authFormSchema}
+        isLoading={authStore.isLoading}
         fields={[
           {
             name: "email",

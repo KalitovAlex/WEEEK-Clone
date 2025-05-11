@@ -28,6 +28,7 @@
   &:focus {
     border-color: $primary-color;
     outline: none;
+    opacity: 1;
   }
 }
 
@@ -49,6 +50,7 @@
 
   &:focus-within {
     transition: 0.2s ease-in-out;
+    opacity: 1;
     svg:not(.input-wrapper__button svg) {
       color: $primary-color;
       opacity: 1;

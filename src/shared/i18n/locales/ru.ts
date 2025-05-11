@@ -8,7 +8,11 @@ export const ru = {
   unknownError: "Неизвестная ошибка",
   auth: {
     title: "Авторизация",
-    register: "Зарегистрироваться",
+    register: {
+      title: "Регистрация",
+      success: "Вы успешно зарегистрировались",
+      error: "Неверный email или пароль",
+    },
     success: "Вы успешно вошли в систему",
     error: "Неверный email или пароль",
     forgotPassword: "Забыли пароль?",

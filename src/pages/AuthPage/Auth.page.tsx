@@ -22,7 +22,7 @@ export const AuthPage = () => {
       footer={{
         text: t("auth.dontHaveAccount"),
         actionButton: {
-          text: t("auth.register"),
+          text: t("auth.register.title"),
           onClick: () => navigate(ROUTES.REGISTER),
         },
       }}

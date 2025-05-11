@@ -8,7 +8,11 @@ export const en = {
   unknownError: "Unknown error",
   auth: {
     title: "Authorization",
-    register: "Register",
+    register: {
+      title: "Register",
+      success: "You have successfully registered",
+      error: "Invalid email or password",
+    },
     success: "You have successfully logged in",
     error: "Invalid email or password",
     forgotPassword: "Forgot password?",

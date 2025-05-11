@@ -12,7 +12,7 @@ export const RegisterPage = () => {
     <AuthPagesWrapper
       form={<RegisterForm />}
       header={{
-        title: t("auth.register"),
+        title: t("auth.register.title"),
       }}
       footer={{
         text: t("auth.alreadyHaveAccount"),

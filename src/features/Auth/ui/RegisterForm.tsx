@@ -15,13 +15,13 @@ export const RegisterForm = () => {
   const navigate = useNavigate();
 
   const handleRegister = async (data: RegisterPayload) => {
-    await authStore.auth(data);
+    await authStore.register(data);
 
     if (authStore.isSuccess) {
-      toast.success(t("auth.success"));
+      toast.success(t("auth.register.success"));
       navigate(ROUTES.HOME);
     } else {
-      toast.error(authStore.error || t("auth.error"));
+      toast.error(authStore.error || t("auth.register.error"));
     }
   };
 

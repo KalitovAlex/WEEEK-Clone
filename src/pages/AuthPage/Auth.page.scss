@@ -38,5 +38,36 @@
         }
       }
     }
+    &-footer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+      margin-top: 10px;
+
+      &-title {
+        margin: 0;
+        font-size: $x-small-font;
+        font-weight: 500;
+        color: $display-color;
+      }
+
+      &-button {
+        margin: 0;
+        background-color: transparent;
+        border: none;
+        font-size: $x-small-font;
+        font-weight: 500;
+        cursor: pointer;
+        color: $primary-color;
+        text-decoration: underline;
+        text-underline-offset: 0.2em;
+        transition: 0.2s ease-in-out;
+
+        &:hover {
+          text-underline-offset: 0.3em;
+        }
+      }
+    }
   }
 }

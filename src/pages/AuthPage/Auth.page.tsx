@@ -17,6 +17,14 @@ export const AuthPage = () => {
           </button>
         </div>
         <AuthForm />
+        <div className="auth-page__form-footer">
+          <h2 className="auth-page__form-footer-title">
+            {t("auth.dontHaveAccount")}
+          </h2>
+          <button className="auth-page__form-footer-button">
+            {t("auth.register")}
+          </button>
+        </div>
       </div>
     </div>
   );

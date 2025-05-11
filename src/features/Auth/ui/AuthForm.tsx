@@ -2,11 +2,12 @@ import "./AuthForm.scss";
 import { Form } from "@/shared/ui/Form";
 import { Lock, Mail } from "lucide-react";
 import { authFormSchema } from "../model/types";
+import { useTranslation } from "react-i18next";
 
 export const AuthForm = () => {
+  const { t } = useTranslation();
   return (
     <div className="auth-form">
-      <div className="auth-form__header"></div>
       <Form
         schema={authFormSchema}
         fields={[
@@ -14,17 +15,23 @@ export const AuthForm = () => {
             name: "email",
             label: "Email",
             type: "email",
-            icon: <Mail className="auth-form__icon" size={20} />,
+            icon: <Mail size={20} />,
           },
           {
             name: "password",
             label: "Password",
             type: "password",
-            icon: <Lock className="auth-form__icon" size={20} />,
+            icon: <Lock size={20} />,
           },
         ]}
         onSubmit={() => {}}
       />
+      <div className="auth-form__footer">
+        <h2 className="auth-form__footer-title">{t("auth.dontHaveAccount")}</h2>
+        <button className="auth-form__footer-button">
+          {t("auth.register")}
+        </button>
+      </div>
     </div>
   );
 };

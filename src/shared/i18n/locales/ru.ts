@@ -6,7 +6,7 @@ export const ru = {
     title: "Авторизация",
     register: "Зарегистрироваться",
     forgotPassword: "Забыли пароль?",
-    dontHaveAccount: "Нет аккаунта?",
+    dontHaveAccount: "У вас еще нет аккаунта?",
     alreadyHaveAccount: "Уже есть аккаунт?",
   },
 };

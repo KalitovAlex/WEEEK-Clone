@@ -3,10 +3,10 @@ import { Form } from "@/shared/ui/Form";
 import { Lock, Mail } from "lucide-react";
 import { authFormSchema } from "../model/types";
 import { useTranslation } from "react-i18next";
+import { observable } from "mobx";
 
-export const AuthForm = () => {
+export const AuthForm = observable(() => {
   const { t } = useTranslation();
-
   return (
     <div className="auth-form">
       <Form
@@ -29,4 +29,4 @@ export const AuthForm = () => {
       />
     </div>
   );
-};
+});

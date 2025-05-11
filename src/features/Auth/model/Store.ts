@@ -1,19 +1,38 @@
-import { makeAutoObservable } from "mobx";
+import { makeAutoObservable, runInAction } from "mobx";
 import { fromPromise } from "mobx-utils";
+import ApiStore from "@/shared/store/ApiStore";
 import { authApi } from "../../../entities/Auth/api";
 import type { AuthPayload, RegisterPayload } from "@/entities/Auth/model";
 import type { IPromiseBasedObservable } from "mobx-utils";
 import type { User } from "@/entities/User";
 
-class AuthStore {
+class AuthStore extends ApiStore {
   data: IPromiseBasedObservable<User> | null = null;
+
   constructor() {
+    super();
     makeAutoObservable(this);
   }
 
   auth = async (payload: AuthPayload) => {
-    const response = authApi.login(payload);
-    this.data = fromPromise(response.then((res) => res.data as User));
+    try {
+      this.startLoading();
+
+      const response = await authApi.login(payload);
+      const user = response.data;
+      this.data = user;
+      runInAction(() => {
+        this.handleSuccess();
+      });
+    } catch (error) {
+      runInAction(() => {
+        if (error instanceof Error) {
+          this.handleError(error.message);
+        } else {
+          this.handleError("Unknown error");
+        }
+      });
+    }
   };
 
   register = async (payload: RegisterPayload) => {

@@ -1,6 +1,6 @@
-import { makeAutoObservable, runInAction } from "mobx";
+import { makeObservable, observable, action, runInAction } from "mobx";
 import { fromPromise } from "mobx-utils";
-import ApiStore from "@/shared/store/ApiStore";
+import { ApiStore } from "@/shared/store/ApiStore";
 import { authApi } from "../../../entities/Auth/api";
 import type { AuthPayload, RegisterPayload } from "@/entities/Auth/model";
 import type { IPromiseBasedObservable } from "mobx-utils";
@@ -11,7 +11,11 @@ class AuthStore extends ApiStore {
 
   constructor() {
     super();
-    makeAutoObservable(this);
+    makeObservable(this, {
+      data: observable,
+      auth: action,
+      register: action,
+    });
   }
 
   auth = async (payload: AuthPayload) => {

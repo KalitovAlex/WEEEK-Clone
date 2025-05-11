@@ -1,13 +1,21 @@
-import { makeAutoObservable } from "mobx";
+import { makeObservable, observable, action } from "mobx";
 
-class ApiStore {
+export class ApiStore {
   isLoading = false;
   isError = false;
   error: string | null = null;
   isSuccess = false;
 
   constructor() {
-    makeAutoObservable(this);
+    makeObservable(this, {
+      isLoading: observable,
+      isError: observable,
+      error: observable,
+      isSuccess: observable,
+      startLoading: action,
+      handleSuccess: action,
+      handleError: action,
+    });
   }
 
   startLoading() {
@@ -31,5 +39,3 @@ class ApiStore {
     this.isSuccess = false;
   }
 }
-
-export default ApiStore;

@@ -3,9 +3,27 @@ import { registerFormSchema } from "../model/types";
 import "./RegisterForm.scss";
 import { useTranslation } from "react-i18next";
 import { Lock, Mail, User } from "lucide-react";
+import { authStore } from "../model";
+import { toast } from "sonner";
+import type { RegisterPayload } from "@/entities/Auth";
+import { ROUTES } from "@/shared/model/routes";
+import { useNavigate } from "react-router";
 
 export const RegisterForm = () => {
   const { t } = useTranslation();
+
+  const navigate = useNavigate();
+
+  const handleRegister = async (data: RegisterPayload) => {
+    await authStore.auth(data);
+
+    if (authStore.isSuccess) {
+      toast.success(t("auth.success"));
+      navigate(ROUTES.HOME);
+    } else {
+      toast.error(authStore.error || t("auth.error"));
+    }
+  };
 
   return (
     <div className="register-form">
@@ -13,13 +31,13 @@ export const RegisterForm = () => {
         schema={registerFormSchema}
         fields={[
           {
-            name: "name",
+            name: "firstName",
             label: t("name"),
             type: "text",
             icon: <User size={20} />,
           },
           {
-            name: "surname",
+            name: "lastName",
             label: t("surname"),
             type: "text",
             icon: <User size={20} />,
@@ -37,7 +55,7 @@ export const RegisterForm = () => {
             icon: <Lock size={20} />,
           },
         ]}
-        onSubmit={() => {}}
+        onSubmit={handleRegister}
       />
     </div>
   );

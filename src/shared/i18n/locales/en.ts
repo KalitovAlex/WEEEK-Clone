@@ -3,7 +3,9 @@ export const en = {
   password: "Password",
   login: "Login",
   name: "Name",
+  send: "Send",
   surname: "Surname",
+  unknownError: "Unknown error",
   auth: {
     title: "Authorization",
     register: "Register",

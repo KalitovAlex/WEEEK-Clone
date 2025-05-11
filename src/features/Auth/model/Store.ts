@@ -1,10 +1,11 @@
 import { makeObservable, observable, action, runInAction } from "mobx";
-import { fromPromise } from "mobx-utils";
 import { ApiStore } from "@/shared/store/ApiStore";
 import { authApi } from "../../../entities/Auth/api";
 import type { AuthPayload, RegisterPayload } from "@/entities/Auth/model";
 import type { IPromiseBasedObservable } from "mobx-utils";
 import type { User } from "@/entities/User";
+import { AxiosError } from "axios";
+import i18n from "@/shared/i18n";
 
 class AuthStore extends ApiStore {
   data: IPromiseBasedObservable<User> | null = null;
@@ -30,8 +31,8 @@ class AuthStore extends ApiStore {
       });
     } catch (error) {
       runInAction(() => {
-        if (error instanceof Error) {
-          this.handleError(error.message);
+        if (error instanceof AxiosError) {
+          this.handleError(error.response?.data.message);
         } else {
           this.handleError("Unknown error");
         }
@@ -40,8 +41,25 @@ class AuthStore extends ApiStore {
   };
 
   register = async (payload: RegisterPayload) => {
-    const response = authApi.register(payload);
-    this.data = fromPromise(response.then((res) => res.data as User));
+    try {
+      this.startLoading();
+
+      const response = await authApi.register(payload);
+      const user = response.data;
+      this.data = user;
+
+      runInAction(() => {
+        this.handleSuccess();
+      });
+    } catch (error) {
+      runInAction(() => {
+        if (error instanceof AxiosError) {
+          this.handleError(error.response?.data.message);
+        } else {
+          this.handleError(i18n.t("unknownError"));
+        }
+      });
+    }
   };
 }
 

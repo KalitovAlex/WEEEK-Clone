@@ -11,7 +11,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "../Input";
 import { Button } from "../Button";
 import type { ReactNode } from "react";
-import { Loader } from "../Loader";
+import i18n from "@/shared/i18n";
+
 type FieldType = "text" | "email" | "number" | "password";
 
 type FieldConfig<T extends FieldValues> = {
@@ -36,7 +37,7 @@ export function Form<T extends FieldValues>({
   fields,
   onSubmit,
   defaultValues,
-  buttonText = "Отправить",
+  buttonText = i18n.t("send"),
   isLoading = false,
 }: SmartFormProps<T>) {
   const {
@@ -50,9 +51,8 @@ export function Form<T extends FieldValues>({
 
   return (
     <form className="form" onSubmit={handleSubmit(onSubmit)}>
-      {isLoading && <Loader />}
       {fields.map((field) => (
-        <div className="form-field" key={field.toString()}>
+        <div className="form-field" key={field.name}>
           <Input
             type={field.type}
             placeholder={field.label}

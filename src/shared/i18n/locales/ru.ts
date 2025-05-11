@@ -4,6 +4,8 @@ export const ru = {
   login: "Войти",
   name: "Имя",
   surname: "Фамилия",
+  send: "Отправить",
+  unknownError: "Неизвестная ошибка",
   auth: {
     title: "Авторизация",
     register: "Зарегистрироваться",

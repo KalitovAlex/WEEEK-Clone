@@ -9,10 +9,12 @@ export const authFormSchema = z.object({
 });
 
 export const registerFormSchema = z.object({
-  name: z.string().min(1, { message: i18n.t("auth.validation.name.required") }),
-  surname: z
+  firstName: z
     .string()
-    .min(1, { message: i18n.t("auth.validation.surname.required") }),
+    .min(1, { message: i18n.t("auth.validation.firstName.required") }),
+  lastName: z
+    .string()
+    .min(1, { message: i18n.t("auth.validation.lastName.required") }),
   email: z.string().email({ message: i18n.t("auth.validation.email.invalid") }),
   password: z
     .string()

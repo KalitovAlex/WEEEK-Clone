@@ -1,15 +1,18 @@
-import { type User } from "@entities/User";
-import { makeAutoObservable } from "mobx";
+import { makeAutoObservable, observable } from "mobx";
+import { userApi } from "../api";
+import { fromPromise, type IPromiseBasedObservable } from "mobx-utils";
+import type { User } from "@/entities/User";
 
 export class UserStore {
-  user: User | null = null;
+  @observable data: IPromiseBasedObservable<User> | null = null;
 
   constructor() {
     makeAutoObservable(this);
   }
 
-  setUser(user: User) {
-    this.user = user;
+  async getUser() {
+    const response = userApi.getUser();
+    this.data = fromPromise(response);
   }
 }
 

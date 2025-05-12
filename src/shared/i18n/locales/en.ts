@@ -5,7 +5,25 @@ export const en = {
   name: "Name",
   send: "Send",
   surname: "Surname",
+  next: "Next",
   unknownError: "Unknown error",
+  welcome: {
+    title: "Welcome to the",
+    desc: "One service for working with Tasks, Knowledge Base, CRM and Analytics",
+    button: "Start",
+  },
+  setup: {
+    title: "Say more about",
+    yourself: "yourself",
+    help: "These answers will help make WEEEK better",
+    peoples: "How many people you will work?",
+  },
+  howManyPeopleYouWork: {
+    title: "How many people you will work?",
+    options: {
+      onlyMe: "Only me",
+    },
+  },
   auth: {
     title: "Authorization",
     register: {

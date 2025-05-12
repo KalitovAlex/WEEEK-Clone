@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import "./index.scss";
+import { Toggle } from "../Toggle";
 
 const LANGUAGES = [
   { code: "ru", label: "RU" },
@@ -10,25 +11,21 @@ export const LanguageSelect = () => {
   const { i18n } = useTranslation();
 
   const handleLanguageChange = (langCode: "ru" | "en") => {
-    console.log("Changing language to:", langCode); // Для отладки
+    console.log("Changing language to:", langCode);
     i18n.changeLanguage(langCode).then(() => {
-      console.log("Language changed, current:", i18n.language); // Для отладки
+      console.log("Language changed, current:", i18n.language);
     });
   };
 
   return (
     <div className="language-select">
       {LANGUAGES.map((lang) => (
-        <button
+        <Toggle
           key={lang.code}
-          className={`language-button ${
-            i18n.language === lang.code ? "active" : ""
-          }`}
-          onClick={() => handleLanguageChange(lang.code)}
-          type="button"
-        >
-          {lang.label}
-        </button>
+          label={lang.label}
+          checked={i18n.language === lang.code}
+          onChange={() => handleLanguageChange(lang.code)}
+        />
       ))}
     </div>
   );

@@ -25,6 +25,11 @@
     transition: background-color 5000s ease-in-out 0s;
   }
 
+  &--filled {
+    background-color: $border-color;
+    border-radius: 15px;
+  }
+
   &:focus {
     border-color: $primary-color;
     outline: none;

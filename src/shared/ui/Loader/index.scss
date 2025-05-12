@@ -10,6 +10,15 @@
   white-space: nowrap;
   color: #0000;
   animation: l40 2s infinite;
+
+  &.full-screen {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
+    height: auto;
+  }
 }
 
 .loader:before {

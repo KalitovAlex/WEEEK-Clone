@@ -4,6 +4,8 @@ export const ROUTES = {
   LOGIN: "/login",
   REGISTER: "/register",
   HOME: "/",
+  WELCOME: "/welcome",
+  SETUP: "/setup",
 } as const;
 
 export type PathParams = {

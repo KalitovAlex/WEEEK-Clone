@@ -7,6 +7,7 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   placeholder?: string;
   icon?: ReactNode;
   iconPosition?: "left" | "right";
+  variant?: "default" | "filled";
 }
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
@@ -14,28 +15,32 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     {
       type = "text",
       placeholder,
-      className,
+      className = "",
       icon,
       iconPosition = "left",
+      variant = "default",
       ...props
     },
     ref
   ) => {
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);
-    if (type == "password") {
+    if (type === "password") {
       return (
         <div className="input-wrapper">
-          {icon && iconPosition === "left" && icon}
+          {icon && iconPosition === "left" && (
+            <span className="input-icon input-icon-left">{icon}</span>
+          )}
           <input
             ref={ref}
             type={isPasswordVisible ? "text" : "password"}
-            className={`${className} ${icon ? "has-icon" : ""} ${
+            className={`input ${className} ${icon ? "has-icon" : ""} ${
               icon ? `icon-${iconPosition}` : ""
-            }`}
+            } ${variant === "filled" ? "input--filled" : ""}`}
             placeholder={placeholder}
             {...props}
           />
           <button
+            type="button"
             className="input-wrapper__button"
             onClick={() => setIsPasswordVisible(!isPasswordVisible)}
           >
@@ -46,17 +51,21 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     }
     return (
       <div className="input-wrapper">
-        {icon && iconPosition === "left" && icon}
+        {icon && iconPosition === "left" && (
+          <span className="input-icon input-icon-left">{icon}</span>
+        )}
         <input
           ref={ref}
           type={type}
-          className={`${className} ${icon ? "has-icon" : ""} ${
+          className={`input ${className} ${icon ? "has-icon" : ""} ${
             icon ? `icon-${iconPosition}` : ""
-          }`}
+          } ${variant === "filled" ? "input--filled" : ""}`}
           placeholder={placeholder}
           {...props}
         />
-        {icon && iconPosition === "right" && icon}
+        {icon && iconPosition === "right" && (
+          <span className="input-icon input-icon-right">{icon}</span>
+        )}
       </div>
     );
   }

@@ -5,6 +5,7 @@ export const ru = {
   name: "Имя",
   surname: "Фамилия",
   send: "Отправить",
+  next: "Продолжить",
   unknownError: "Неизвестная ошибка",
   welcome: {
     title: "Добро пожаловать в",
@@ -13,7 +14,15 @@ export const ru = {
   },
   setup: {
     title: "Расскажи о",
+    help: "Эти ответы помогут делать WEEEK лучше",
     yourself: "себе",
+    peoples: "Со сколькими людьми ты будешь работать?",
+  },
+  howManyPeopleYouWork: {
+    title: "Сколько людей будет работать с тобой?",
+    options: {
+      onlyMe: "Только я",
+    },
   },
   auth: {
     title: "Авторизация",

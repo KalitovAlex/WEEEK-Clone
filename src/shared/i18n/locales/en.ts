@@ -5,6 +5,7 @@ export const en = {
   name: "Name",
   send: "Send",
   surname: "Surname",
+  next: "Next",
   unknownError: "Unknown error",
   welcome: {
     title: "Welcome to the",
@@ -14,6 +15,14 @@ export const en = {
   setup: {
     title: "Say more about",
     yourself: "yourself",
+    help: "These answers will help make WEEEK better",
+    peoples: "How many people you will work?",
+  },
+  howManyPeopleYouWork: {
+    title: "How many people you will work?",
+    options: {
+      onlyMe: "Only me",
+    },
   },
   auth: {
     title: "Authorization",

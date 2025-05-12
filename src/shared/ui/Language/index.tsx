@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import "./index.scss";
+import { Toggle } from "../Toggle";
 
 const LANGUAGES = [
   { code: "ru", label: "RU" },
@@ -19,16 +20,12 @@ export const LanguageSelect = () => {
   return (
     <div className="language-select">
       {LANGUAGES.map((lang) => (
-        <button
+        <Toggle
           key={lang.code}
-          className={`language-button ${
-            i18n.language === lang.code ? "active" : ""
-          }`}
-          onClick={() => handleLanguageChange(lang.code)}
-          type="button"
-        >
-          {lang.label}
-        </button>
+          label={lang.label}
+          checked={i18n.language === lang.code}
+          onChange={() => handleLanguageChange(lang.code)}
+        />
       ))}
     </div>
   );

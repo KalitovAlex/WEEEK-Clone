@@ -32,5 +32,35 @@
         }
       }
     }
+
+    &__step {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      &__title {
+        margin-top: 15px;
+        font-size: $x-small-font;
+        font-weight: 300;
+      }
+
+      &__peoples {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+
+        &__title {
+          font-size: $x-small-font;
+          font-weight: 550;
+          margin-top: 1rem;
+        }
+
+        &__list {
+          gap: 8px;
+          display: flex;
+          flex-wrap: wrap;
+        }
+      }
+    }
   }
 }

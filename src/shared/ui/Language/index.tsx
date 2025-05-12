@@ -10,9 +10,9 @@ export const LanguageSelect = () => {
   const { i18n } = useTranslation();
 
   const handleLanguageChange = (langCode: "ru" | "en") => {
-    console.log("Changing language to:", langCode); // Для отладки
+    console.log("Changing language to:", langCode);
     i18n.changeLanguage(langCode).then(() => {
-      console.log("Language changed, current:", i18n.language); // Для отладки
+      console.log("Language changed, current:", i18n.language);
     });
   };
 

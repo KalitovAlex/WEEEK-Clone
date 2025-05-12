@@ -10,9 +10,10 @@ export const Steps = ({ stepsCount, currentStep }: StepsProps) => {
   return (
     <div className="steps">
       {Array.from({ length: stepsCount }).map((_, index) => (
-        <div key={index} className="steps__step">
-          {index}
-        </div>
+        <div
+          key={index}
+          className={`steps__step ${index === currentStep ? "active" : ""}`}
+        ></div>
       ))}
     </div>
   );

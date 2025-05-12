@@ -1,11 +1,22 @@
+@use "../../styles/variables.scss" as *;
+
 .steps {
   display: flex;
   flex-direction: row;
   gap: 16px;
+  width: 100%;
 
   &__step {
     display: flex;
     flex-direction: column;
     gap: 16px;
+    background-color: $inactive-color;
+    width: 100%;
+    height: 4px;
+    border-radius: 30px;
+
+    &.active {
+      background-color: $primary-color;
+    }
   }
 }

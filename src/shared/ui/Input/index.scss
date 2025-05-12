@@ -26,8 +26,8 @@
   }
 
   &--filled {
-    background-color: $display-color;
-    border-radius: 30px;
+    background-color: $border-color;
+    border-radius: 15px;
   }
 
   &:focus {

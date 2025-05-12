@@ -35,7 +35,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             type={isPasswordVisible ? "text" : "password"}
             className={`input ${className} ${icon ? "has-icon" : ""} ${
               icon ? `icon-${iconPosition}` : ""
-            } ${variant === "filled" ? "input-filled" : ""}`}
+            } ${variant === "filled" ? "input--filled" : ""}`}
             placeholder={placeholder}
             {...props}
           />
@@ -59,7 +59,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           type={type}
           className={`input ${className} ${icon ? "has-icon" : ""} ${
             icon ? `icon-${iconPosition}` : ""
-          }`}
+          } ${variant === "filled" ? "input--filled" : ""}`}
           placeholder={placeholder}
           {...props}
         />

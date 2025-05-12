@@ -15,3 +15,8 @@ export interface AuthResponse extends ApiResponse {
   token: string;
   user: User;
 }
+
+export interface MeResponse extends ApiResponse {
+  user: User;
+  token: string;
+}

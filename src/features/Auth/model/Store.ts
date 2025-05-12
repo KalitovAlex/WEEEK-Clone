@@ -3,14 +3,14 @@ import { ApiStore } from "@/shared/store/ApiStore";
 import { authApi } from "../../../entities/Auth/api";
 import type {
   AuthPayload,
-  AuthResponse,
+  MeResponse,
   RegisterPayload,
 } from "@/entities/Auth/model";
 import { AxiosError } from "axios";
 import i18n from "@/shared/i18n";
 
 class AuthStore extends ApiStore {
-  data: AuthResponse | null = null;
+  data: MeResponse | null = null;
 
   constructor() {
     super();
@@ -26,7 +26,7 @@ class AuthStore extends ApiStore {
       this.startLoading();
 
       const response = await authApi.login(payload);
-      const responseData = response.data;
+      const responseData = response.data.data;
       this.data = responseData;
 
       runInAction(() => {
@@ -48,7 +48,7 @@ class AuthStore extends ApiStore {
       this.startLoading();
 
       const response = await authApi.register(payload);
-      const responseData = response.data;
+      const responseData = response.data.data;
       this.data = responseData;
 
       runInAction(() => {
@@ -70,7 +70,7 @@ class AuthStore extends ApiStore {
       this.startLoading();
 
       const response = await authApi.me();
-      const responseData = response.data;
+      const responseData = response.data.data;
       this.data = responseData;
 
       runInAction(() => {

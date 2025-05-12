@@ -1,0 +1,11 @@
+.steps {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+
+  &__step {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+}

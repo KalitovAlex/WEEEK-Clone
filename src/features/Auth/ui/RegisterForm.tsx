@@ -22,7 +22,7 @@ export const RegisterForm = () => {
     if (authStore.isSuccess) {
       toast.success(t("auth.register.success"));
       setCookie(TOKEN, authStore.data?.token || "");
-      navigate(ROUTES.HOME);
+      navigate(ROUTES.WELCOME);
     } else {
       toast.error(authStore.error || t("auth.register.error"));
     }

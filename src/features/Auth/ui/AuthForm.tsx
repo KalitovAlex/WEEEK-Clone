@@ -22,7 +22,7 @@ export const AuthForm = observer(() => {
     if (authStore.isSuccess) {
       toast.success(t("auth.success"));
       setCookie(TOKEN, authStore.data?.token || "");
-      navigate(ROUTES.HOME);
+      navigate(ROUTES.WELCOME);
     } else {
       toast.error(authStore.error || t("auth.error"));
     }

@@ -1,3 +1,4 @@
+import { Steps } from "@/shared/ui/Steps";
 import "./Setup.page.scss";
 import { useTranslation } from "react-i18next";
 
@@ -13,6 +14,7 @@ export const SetupPage = () => {
           </span>
         </p>
       </div>
+      <Steps stepsCount={3} currentStep={1} />
     </div>
   );
 };

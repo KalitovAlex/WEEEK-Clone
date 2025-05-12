@@ -6,6 +6,10 @@ export const ru = {
   surname: "Фамилия",
   send: "Отправить",
   unknownError: "Неизвестная ошибка",
+  welcome: {
+    title: "Добро пожаловать в",
+    desc: "Один сервис для работы с Задачами, базой знаний, CRM и Аналитикой",
+  },
   auth: {
     title: "Авторизация",
     register: {

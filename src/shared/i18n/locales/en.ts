@@ -6,6 +6,10 @@ export const en = {
   send: "Send",
   surname: "Surname",
   unknownError: "Unknown error",
+  welcome: {
+    title: "Welcome to the",
+    desc: "One service for working with Tasks, Knowledge Base, CRM and Analytics",
+  },
   auth: {
     title: "Authorization",
     register: {

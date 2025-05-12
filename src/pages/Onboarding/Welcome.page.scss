@@ -1,5 +1,22 @@
 .welcome-page {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  height: 90vh;
+  justify-content: center;
+  align-items: center;
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    &__title {
+      font-size: 2.5rem;
+      font-weight: 500;
+    }
+    &__desc {
+      margin: 0 60px;
+      font-size: 1rem;
+    }
+  }
 }

@@ -4,11 +4,11 @@ $primary-color-hover: #4d72d3;
 $secondary-color: #f4f4f6;
 $loader-color: #000;
 
-$large-font: 24px;
-$medium-font: 20px;
-$small-font: 18px;
-$x-small-font: 16px;
-$xx-small-font: 14px;
+$large-font: 2.5rem;
+$medium-font: 1.7rem;
+$small-font: 1.3rem;
+$x-small-font: 1rem;
+$xx-small-font: 0.5rem;
 
 @mixin button-gradient {
   background: linear-gradient(

@@ -11,6 +11,10 @@ export const en = {
     desc: "One service for working with Tasks, Knowledge Base, CRM and Analytics",
     button: "Start",
   },
+  setup: {
+    title: "Say more about",
+    yourself: "yourself",
+  },
   auth: {
     title: "Authorization",
     register: {

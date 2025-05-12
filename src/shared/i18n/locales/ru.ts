@@ -11,6 +11,10 @@ export const ru = {
     desc: "Один сервис для работы с Задачами, базой знаний, CRM и Аналитикой",
     button: "Начать",
   },
+  setup: {
+    title: "Расскажи о",
+    yourself: "себе",
+  },
   auth: {
     title: "Авторизация",
     register: {

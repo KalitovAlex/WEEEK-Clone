@@ -1,35 +1,37 @@
 import { Button } from "@/shared/ui/Button";
 import type { Meta, StoryObj } from "@storybook/react";
-import type { ComponentProps } from "react";
 
-type Story = ComponentProps<typeof Button>;
-
-const meta: Meta<Story> = {
+const meta: Meta<typeof Button> = {
   title: "Button",
   component: Button,
+  tags: ["autodocs"],
 };
 
 export default meta;
 
-type StoryType = StoryObj<Story>;
+type Story = StoryObj<typeof Button>;
 
-export const Primary: StoryType = {
+export const Primary: Story = {
   args: {
     variant: "primary",
     size: "large",
-    children: "Click me",
-    onClick: () => {
-      console.log("clicked");
-    },
+    children: "Primary Button",
+    onClick: () => console.log("Primary button clicked"),
   },
 };
 
-export const Gradient: StoryType = {
+export const Gradient: Story = {
   args: {
     variant: "gradient",
-    children: "Click me",
-    onClick: () => {
-      console.log("clicked");
-    },
+    children: "Gradient Button",
+    onClick: () => console.log("Gradient button clicked"),
+  },
+};
+
+export const Loading: Story = {
+  args: {
+    variant: "primary",
+    size: "large",
+    isLoading: true,
   },
 };

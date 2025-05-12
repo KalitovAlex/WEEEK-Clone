@@ -23,6 +23,10 @@ export const router = createBrowserRouter([
         path: ROUTES.WELCOME,
         lazy: () => import("@/pages/Onboarding/Welcome.page"),
       },
+      {
+        path: ROUTES.SETUP,
+        lazy: () => import("@/pages/Onboarding/Setup.page"),
+      },
     ],
   },
 ]);

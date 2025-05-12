@@ -20,6 +20,7 @@ $xx-small-font: 14px;
 }
 
 @mixin button-gradient-hover {
+  transition: background 0.3s ease;
   background: linear-gradient(
     to right,
     rgba($primary-color, 0.3),

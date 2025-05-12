@@ -2,24 +2,30 @@
 @use "sass:color";
 
 .button {
-  @include button-gradient;
-  background-position: 100% 0;
-  background-size: 300% 100%;
-  transition: background-position 0.3s ease;
+  background-color: $primary-color;
 
   color: #fff;
   padding: 12px 20px;
   border-radius: 10px;
-  width: 100%;
+  padding: 0.7rem 3rem;
   cursor: pointer;
   border: none;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 500;
+  transition: all 0.3s ease;
   display: flex;
   justify-content: center;
   align-items: center;
 
   &:hover {
-    background-position: 0 0;
+    background-color: color.scale($primary-color, $lightness: 10%);
+  }
+
+  &.large {
+    width: 100%;
+  }
+
+  &.gradient {
+    @include button-gradient;
   }
 }

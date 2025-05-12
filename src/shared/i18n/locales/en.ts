@@ -9,6 +9,7 @@ export const en = {
   welcome: {
     title: "Welcome to the",
     desc: "One service for working with Tasks, Knowledge Base, CRM and Analytics",
+    button: "Start",
   },
   auth: {
     title: "Authorization",

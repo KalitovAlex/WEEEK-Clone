@@ -7,6 +7,7 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   placeholder?: string;
   icon?: ReactNode;
   iconPosition?: "left" | "right";
+  variant?: "default" | "filled";
 }
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
@@ -17,6 +18,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       className = "",
       icon,
       iconPosition = "left",
+      variant = "default",
       ...props
     },
     ref
@@ -33,7 +35,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             type={isPasswordVisible ? "text" : "password"}
             className={`input ${className} ${icon ? "has-icon" : ""} ${
               icon ? `icon-${iconPosition}` : ""
-            }`}
+            } ${variant === "filled" ? "input-filled" : ""}`}
             placeholder={placeholder}
             {...props}
           />

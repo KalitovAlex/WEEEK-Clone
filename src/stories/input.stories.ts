@@ -40,3 +40,11 @@ export const Password: Story = {
     placeholder: "Enter password...",
   },
 };
+
+export const Filled: Story = {
+  args: {
+    type: "text",
+    placeholder: "Enter text...",
+    variant: "filled",
+  },
+};

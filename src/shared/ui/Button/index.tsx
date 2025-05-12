@@ -3,12 +3,12 @@ import { Loader } from "../Loader";
 
 export const Button = ({
   children,
-  type,
+  type = "button",
   onClick,
   isLoading,
 }: {
   children: React.ReactNode;
-  type: "button" | "submit" | "reset";
+  type?: "button" | "submit" | "reset";
   onClick?: () => void;
   isLoading?: boolean;
 }) => {

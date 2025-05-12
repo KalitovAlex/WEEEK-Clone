@@ -9,3 +9,21 @@ $medium-font: 20px;
 $small-font: 18px;
 $x-small-font: 16px;
 $xx-small-font: 14px;
+
+@mixin button-gradient {
+  background: linear-gradient(
+    to right,
+    rgba($primary-color, 0.4),
+    rgba($primary-color, 0.8),
+    rgba($primary-color, 0.4)
+  );
+}
+
+@mixin button-gradient-hover {
+  background: linear-gradient(
+    to right,
+    rgba($primary-color, 0.3),
+    rgba($primary-color, 0.6),
+    rgba($primary-color, 0.3)
+  );
+}

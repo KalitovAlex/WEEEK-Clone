@@ -9,8 +9,9 @@ import type { AuthPayload } from "@/entities/Auth";
 import { useNavigate } from "react-router";
 import { ROUTES } from "@/shared/model/routes";
 import { toast } from "sonner";
-import { setCookie } from "@/shared/utils/cookie";
+import { getCookie, setCookie } from "@/shared/utils/cookie";
 import { TOKEN } from "@/shared/constants/api";
+import { SETUP_STEP, SETUP_STEP_KEY } from "@/features/Setup/model/items";
 
 export const AuthForm = observer(() => {
   const { t } = useTranslation();
@@ -22,7 +23,11 @@ export const AuthForm = observer(() => {
     if (authStore.isSuccess) {
       toast.success(t("auth.success"));
       setCookie(TOKEN, authStore.data?.token || "");
-      navigate(ROUTES.WELCOME);
+      if (getCookie(SETUP_STEP_KEY) === SETUP_STEP.confirmed)
+        navigate(ROUTES.WELCOME);
+      else {
+        navigate(ROUTES.WELCOME);
+      }
     } else {
       toast.error(authStore.error || t("auth.error"));
     }

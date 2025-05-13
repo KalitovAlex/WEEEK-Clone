@@ -30,3 +30,8 @@ export const howManyPeopleYouWork = [
     value: 7,
   },
 ];
+
+export const SETUP_STEP_KEY = "setup_step";
+export const SETUP_STEP = {
+  confirmed: "true",
+};

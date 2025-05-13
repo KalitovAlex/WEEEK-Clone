@@ -4,7 +4,10 @@ import { useTranslation } from "react-i18next";
 import { useState } from "react";
 import { Button } from "@/shared/ui/Button";
 import { Toggle } from "@/shared/ui/Toggle";
-import { howManyPeopleYouWork } from "@/features/Setup/model/items";
+import {
+  howManyPeopleYouWork,
+  whatDoYouDo,
+} from "@/features/Setup/model/items";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "@/shared/model/routes";
 import { Select } from "@/shared/ui/Select";
@@ -56,12 +59,7 @@ export const SetupPage = () => {
               {t("setup.whatDo")}
             </p>
             <Select
-              options={[
-                {
-                  label: "test",
-                  value: "test",
-                },
-              ]}
+              options={whatDoYouDo}
               onChange={(value) => {
                 console.log(value);
               }}

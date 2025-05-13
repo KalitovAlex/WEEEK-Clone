@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import type { SelectOption } from "@/shared/types/select";
 import "./index.scss";
 import { ChevronDown } from "lucide-react";
+import i18n from "@/shared/i18n";
 
 interface SelectProps {
   options: SelectOption[];
@@ -12,7 +13,7 @@ interface SelectProps {
 export const Select = ({
   options,
   onChange,
-  placeholder = "Выберите...",
+  placeholder = i18n.t("select.placeholder"),
 }: SelectProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState<SelectOption | null>(

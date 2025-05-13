@@ -7,6 +7,9 @@ export const en = {
   surname: "Surname",
   next: "Next",
   unknownError: "Unknown error",
+  select: {
+    placeholder: "Select...",
+  },
   welcome: {
     title: "Welcome to the",
     desc: "One service for working with Tasks, Knowledge Base, CRM and Analytics",

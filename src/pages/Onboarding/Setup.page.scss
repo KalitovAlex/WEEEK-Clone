@@ -47,12 +47,12 @@
       &__peoples {
         display: flex;
         flex-direction: column;
-        gap: 16px;
+        gap: 30px;
 
         &__title {
           font-size: $x-small-font;
           font-weight: 550;
-          margin-top: 1rem;
+          margin-top: 1.5rem;
         }
 
         &__list {

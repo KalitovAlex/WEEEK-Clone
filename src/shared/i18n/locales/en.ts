@@ -17,6 +17,7 @@ export const en = {
     yourself: "yourself",
     help: "These answers will help make WEEEK better",
     peoples: "How many people you will work?",
+    whatDo: "What make you or your team work?",
   },
   howManyPeopleYouWork: {
     title: "How many people you will work?",

@@ -50,7 +50,7 @@ export const Select = ({
       >
         <span>{selectedOption ? selectedOption.label : placeholder}</span>
         <span className="select-arrow">
-          <ChevronDown />
+          <ChevronDown scale={0.3} className={isOpen ? "active" : ""} />
         </span>
       </div>
 

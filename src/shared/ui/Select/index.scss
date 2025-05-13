@@ -33,9 +33,13 @@
 }
 
 .select-arrow {
-  color: $display-color;
+  color: $text-color;
   font-size: 0.8rem;
   transition: transform 0.2s ease;
+
+  &.active {
+    background-color: $primary-color;
+  }
 }
 
 .select-dropdown {

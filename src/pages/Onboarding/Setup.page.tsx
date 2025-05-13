@@ -50,22 +50,24 @@ export const SetupPage = () => {
             </div>
           </div>
         </div>
-        <div className="setup-page__content__step__what-do">
-          <p className="setup-page__content__step__what-do__title">
-            {t("setup.whatDo")}
-          </p>
-          <Select
-            options={[
-              {
-                label: "test",
-                value: "test",
-              },
-            ]}
-            onChange={(value) => {
-              console.log(value);
-            }}
-          />
-        </div>
+        {currentStep >= 1 && (
+          <div className="setup-page__content__step__what-do">
+            <p className="setup-page__content__step__what-do__title">
+              {t("setup.whatDo")}
+            </p>
+            <Select
+              options={[
+                {
+                  label: "test",
+                  value: "test",
+                },
+              ]}
+              onChange={(value) => {
+                console.log(value);
+              }}
+            />
+          </div>
+        )}
         <Button
           onClick={() => {
             if (currentStep === 3) {

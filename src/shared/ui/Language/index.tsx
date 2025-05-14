@@ -22,6 +22,7 @@ export const LanguageSelect = () => {
       {LANGUAGES.map((lang) => (
         <Toggle
           key={lang.code}
+          size="small"
           label={lang.label}
           checked={i18n.language === lang.code}
           onChange={() => handleLanguageChange(lang.code)}

@@ -4,13 +4,19 @@ export interface ToggleProps {
   label: string;
   checked: boolean;
   onChange: (checked: boolean) => void;
+  size?: "small" | "medium" | "large";
 }
 
-export const Toggle = ({ label, checked, onChange }: ToggleProps) => {
+export const Toggle = ({
+  label,
+  checked,
+  onChange,
+  size = "medium",
+}: ToggleProps) => {
   return (
     <button
       key={label}
-      className={`toggle ${checked ? "active" : ""}`}
+      className={`toggle ${checked ? "active" : ""} ${size}`}
       onClick={() => onChange(!checked)}
       type="button"
     >

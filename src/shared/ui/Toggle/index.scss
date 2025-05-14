@@ -21,4 +21,19 @@
       border: 0.2px solid $display-color;
     }
   }
+
+  &.small {
+    padding: 8px 10px;
+    font-size: $x-small-font;
+  }
+
+  &.medium {
+    padding: 12px 15px;
+    font-size: $x-small-font;
+  }
+
+  &.large {
+    padding: 16px 20px;
+    font-size: $small-font;
+  }
 }

@@ -6,15 +6,12 @@ import { Button } from "@/shared/ui/Button";
 import { Toggle } from "@/shared/ui/Toggle";
 import {
   howManyPeopleYouWork,
-  SETUP_STEP,
-  SETUP_STEP_KEY,
   whatDoYouDo,
   whatRoleYouHave,
 } from "@/features/Setup/model/items";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "@/shared/model/routes";
 import { Select } from "@/shared/ui/Select";
-import { setItem } from "@/shared/utils/localstorage";
 
 export const SetupPage = () => {
   const { t } = useTranslation();
@@ -28,7 +25,6 @@ export const SetupPage = () => {
   useEffect(() => {
     if (currentStep === 3) {
       navigate(ROUTES.WORKSPACE);
-      setItem(SETUP_STEP_KEY, SETUP_STEP.confirmed);
     }
   }, [currentStep, navigate]);
 

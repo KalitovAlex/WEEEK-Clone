@@ -15,6 +15,11 @@ export const en = {
     desc: "One service for working with Tasks, Knowledge Base, CRM and Analytics",
     button: "Start",
   },
+  workspace: {
+    title: "Configure your",
+    work: "work",
+    desc: "Create your first workspace — a place where you'll collect all your projects, tasks, and documents",
+  },
   setup: {
     title: "Say more about",
     yourself: "yourself",

@@ -3,14 +3,34 @@
 .work-space-card {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   height: 58px;
   background: white;
   width: $sidebar-expanded-width;
   border-right: 1px solid $border-color;
+
+  &__actions {
+    position: sticky;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    &__icon {
+      color: $text-color;
+      cursor: pointer;
+      transition: color $transition-duration ease;
+
+      &:hover {
+        color: $primary-color;
+      }
+    }
+  }
   &__content {
     display: flex;
     flex-direction: row;
+    width: $sidebar-expanded-width;
     margin: 0.5rem;
+    justify-content: space-between;
     padding: 1 0.5rem;
     align-items: center;
   }
@@ -23,6 +43,7 @@
     &__title {
       font-size: 12px;
       font-weight: 400;
+      letter-spacing: 0.05em;
     }
     &__name {
       font-size: $x-small-font;

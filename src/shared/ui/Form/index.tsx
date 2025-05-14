@@ -69,7 +69,7 @@ export function Form<T extends FieldValues>({
         </div>
       ))}
 
-      <Button type="submit" isLoading={isLoading}>
+      <Button size="large" type="submit" isLoading={isLoading}>
         {buttonText}
       </Button>
     </form>

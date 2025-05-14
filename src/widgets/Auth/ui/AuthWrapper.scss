@@ -84,9 +84,10 @@
     margin-top: 10px;
     max-width: 300px;
     text-align: center;
+    gap: 1rem;
 
     &-title {
-      font-size: $xx-small-font;
+      font-size: $x-small-font;
       font-weight: 500;
       color: $display-color;
     }

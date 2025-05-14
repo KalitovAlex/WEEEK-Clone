@@ -8,17 +8,16 @@
   margin-top: 1rem;
   box-sizing: border-box;
 }
-
 .select-button {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
   padding: 0.5rem 1rem;
-  background-color: $select-color;
+  background-color: transparent;
+  border: 1px solid $border-color;
   border-radius: 9px;
   cursor: pointer;
-  font-size: $x-small-font;
   transition: all 0.2s ease;
   box-sizing: border-box;
   color: $text-color;
@@ -29,6 +28,23 @@
 
   &.active {
     border-color: $primary-color;
+  }
+
+  &.small {
+    font-size: $x-small-font;
+  }
+
+  &.medium {
+    font-size: $small-font;
+  }
+
+  &.large {
+    font-size: $large-font;
+  }
+
+  &.filled {
+    background-color: $select-color;
+    border: none;
   }
 }
 

@@ -1,6 +1,7 @@
 import { App } from "@/app";
 import { ROUTES } from "@/shared/model/routes";
 import { createBrowserRouter } from "react-router-dom";
+import { MainLayout } from "../layouts/MainLayout";
 
 export const router = createBrowserRouter([
   {
@@ -9,7 +10,13 @@ export const router = createBrowserRouter([
     children: [
       {
         path: ROUTES.HOME,
-        lazy: () => import("@/pages/HomePage/Home.page"),
+        element: <MainLayout />,
+        children: [
+          {
+            path: ROUTES.HOME,
+            lazy: () => import("@/pages/HomePage/Home.page"),
+          },
+        ],
       },
       {
         path: ROUTES.LOGIN,

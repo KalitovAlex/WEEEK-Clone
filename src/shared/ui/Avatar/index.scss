@@ -1,0 +1,14 @@
+@use "../../../shared/styles/variables.scss" as *;
+
+.avatar {
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $select-color;
+
+  &__initials {
+    font-size: $small-font;
+    font-weight: 600;
+  }
+}

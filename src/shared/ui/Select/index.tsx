@@ -8,12 +8,16 @@ interface SelectProps {
   options: SelectOption[];
   onChange: (value: SelectOption) => void;
   placeholder?: string;
+  size?: "small" | "medium" | "large";
+  variant?: "default" | "filled";
 }
 
 export const Select = ({
   options,
   onChange,
   placeholder = i18n.t("select.placeholder"),
+  size = "medium",
+  variant = "filled",
 }: SelectProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState<SelectOption | null>(
@@ -44,7 +48,7 @@ export const Select = ({
   }, []);
 
   return (
-    <div className="select-container" ref={selectRef}>
+    <div className={`select-container ${size}`} ref={selectRef}>
       <div
         className={`select-button ${isOpen ? "active" : ""}`}
         onClick={() => setIsOpen(!isOpen)}
@@ -62,7 +66,7 @@ export const Select = ({
               key={option.value}
               className={`select-option ${
                 selectedOption?.value === option.value ? "selected" : ""
-              }`}
+              } ${variant === "filled" ? "filled" : ""}`}
               onClick={() => handleSelect(option)}
             >
               {option.label}

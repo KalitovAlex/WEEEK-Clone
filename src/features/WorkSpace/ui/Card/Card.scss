@@ -43,7 +43,9 @@
   &__main {
     display: flex;
     flex-direction: column;
-    gap: 0.4rem;
+    justify-content: space-between;
+    gap: 0.6rem;
+    height: 100%;
     &__title {
       font-size: 10px;
       font-weight: 400;

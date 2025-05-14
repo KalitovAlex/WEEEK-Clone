@@ -1,16 +1,20 @@
 import { Steps } from "@/shared/ui/Steps";
 import "./Setup.page.scss";
 import { useTranslation } from "react-i18next";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/shared/ui/Button";
 import { Toggle } from "@/shared/ui/Toggle";
 import {
   howManyPeopleYouWork,
+  SETUP_STEP,
+  SETUP_STEP_KEY,
   whatDoYouDo,
+  whatRoleYouHave,
 } from "@/features/Setup/model/items";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "@/shared/model/routes";
 import { Select } from "@/shared/ui/Select";
+import { setItem } from "@/shared/utils/localstorage";
 
 export const SetupPage = () => {
   const { t } = useTranslation();
@@ -18,8 +22,15 @@ export const SetupPage = () => {
 
   const [currentStep, setCurrentStep] = useState(0);
   const [selectedPeoples, setSelectedPeoples] = useState<number>(
-    howManyPeopleYouWork[0].value
+    howManyPeopleYouWork[0].value,
   );
+
+  useEffect(() => {
+    if (currentStep === 3) {
+      navigate(ROUTES.HOME);
+      setItem(SETUP_STEP_KEY, SETUP_STEP.confirmed);
+    }
+  }, [currentStep, navigate]);
 
   return (
     <div className="setup-page">
@@ -69,10 +80,10 @@ export const SetupPage = () => {
         {currentStep >= 2 && (
           <div className="setup-page__content__step__what-do">
             <p className="setup-page__content__step__what-do__title">
-              {t("setup.whatDo")}
+              {t("setup.whatRole")}
             </p>
             <Select
-              options={whatDoYouDo}
+              options={whatRoleYouHave}
               onChange={(value) => {
                 console.log(value);
               }}

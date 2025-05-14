@@ -75,3 +75,13 @@ export const whatDoYouDo = [
   },
   { label: "HR", value: "HR" },
 ];
+
+export const whatRoleYouHave = [
+  { label: "Член команды", value: "Член команды" },
+  { label: "Лидер команды", value: "Руководитель" },
+  { label: "Владелец бизнеса", value: "Владелец" },
+  { label: "Директор/Топ менеджер", value: "Директор" },
+  { label: "Фрилансер", value: "Фрилансер" },
+  { label: "Учитель", value: "Учитель" },
+  { label: "Студент", value: "Студент" },
+];

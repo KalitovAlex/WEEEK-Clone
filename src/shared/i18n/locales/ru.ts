@@ -15,6 +15,9 @@ export const ru = {
   select: {
     placeholder: "Выберите...",
   },
+  project: {
+    name: "Проект",
+  },
   setup: {
     title: "Расскажи о",
     help: "Эти ответы помогут делать WEEEK лучше",

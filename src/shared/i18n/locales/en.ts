@@ -23,6 +23,9 @@ export const en = {
     loading: "Please wait, loading...",
     workSpace: "WorkSpace",
   },
+  project: {
+    name: "Project",
+  },
   setup: {
     title: "Say more about",
     yourself: "yourself",

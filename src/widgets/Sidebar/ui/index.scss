@@ -3,11 +3,16 @@
 .sidebar {
   width: $sidebar-expanded-width;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
   background-color: white;
   transition: width 0.3s ease;
   border-right: 1px solid $border-color;
   border-top: 1px solid $border-color;
   border-bottom: 1px solid $border-color;
+  padding-top: 1rem;
 
   &.collapsed {
     width: $sidebar-collapsed-width;

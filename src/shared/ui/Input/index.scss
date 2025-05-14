@@ -2,7 +2,7 @@
 
 .input {
   width: 100%;
-  padding: 1rem 1.5rem;
+  padding: 0.8rem 1rem;
   transition: 0.2s;
   box-sizing: border-box;
   border: none;
@@ -44,7 +44,7 @@
   display: flex;
   align-items: center;
   justify-content: start;
-  padding: 0 0.5rem;
+  padding: 0 0.3rem;
   border: none;
   box-sizing: border-box;
   border-radius: 10px;
@@ -72,6 +72,11 @@
     border: none;
     cursor: pointer;
     padding: 0;
+    margin-left: 0.5rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     svg {
       color: #666;
@@ -91,6 +96,8 @@
   pointer-events: none;
   opacity: 0.7;
   transition: all 0.3s ease-in-out;
+  top: 50%;
+  transform: translateY(-50%);
 
   &-left {
     left: 10px;

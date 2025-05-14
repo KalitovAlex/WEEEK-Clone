@@ -20,6 +20,7 @@ export const en = {
     work: "work",
     desc: "Create your first workspace — a place where you'll collect all your projects, tasks, and documents",
     name: "Workspace name",
+    loading: "Please wait, loading...",
   },
   setup: {
     title: "Say more about",

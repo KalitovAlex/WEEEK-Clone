@@ -8,6 +8,7 @@ export const Button = ({
   isLoading,
   variant = "primary",
   size = "small",
+  disabled = false,
 }: {
   children: React.ReactNode;
   type?: "button" | "submit" | "reset";
@@ -15,12 +16,14 @@ export const Button = ({
   isLoading?: boolean;
   variant?: "primary" | "gradient";
   size?: "small" | "large";
+  disabled?: boolean;
 }) => {
   return (
     <button
       className={`button ${variant} ${size}`}
       type={type}
       onClick={onClick}
+      disabled={disabled}
     >
       {isLoading ? <Loader /> : children}
     </button>

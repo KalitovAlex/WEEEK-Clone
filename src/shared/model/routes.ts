@@ -6,6 +6,7 @@ export const ROUTES = {
   HOME: "/",
   WELCOME: "/welcome",
   SETUP: "/setup",
+  WORKSPACE: "/workspace",
 } as const;
 
 export type PathParams = {

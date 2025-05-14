@@ -27,6 +27,10 @@ export const router = createBrowserRouter([
         path: ROUTES.SETUP,
         lazy: () => import("@/pages/Onboarding/Setup.page"),
       },
+      {
+        path: ROUTES.WORKSPACE,
+        lazy: () => import("@/pages/WorkSpace/Workspace.page"),
+      },
     ],
   },
 ]);

@@ -22,7 +22,7 @@ export const SetupPage = () => {
 
   const [currentStep, setCurrentStep] = useState(0);
   const [selectedPeoples, setSelectedPeoples] = useState<number>(
-    howManyPeopleYouWork[0].value,
+    howManyPeopleYouWork[0].value
   );
 
   useEffect(() => {

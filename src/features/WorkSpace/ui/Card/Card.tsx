@@ -21,14 +21,16 @@ export const WorkSpaceCard = () => {
   return (
     <div className={`work-space-card `}>
       <div className="work-space-card__content">
-        <Avatar initials="AB" />
-        <div className="work-space-card__main">
-          <p className="work-space-card__main__title">
-            {t("workspace.workSpace")}
-          </p>
-          <h2 className="work-space-card__main__name">
-            {getItem(WORKSPACE_NAME)}
-          </h2>
+        <div className="work-space-card__content__left">
+          <Avatar initials="AB" />
+          <div className="work-space-card__main">
+            <p className="work-space-card__main__title">
+              {t("workspace.workSpace")}
+            </p>
+            <h2 className="work-space-card__main__name">
+              {getItem(WORKSPACE_NAME)}
+            </h2>
+          </div>
         </div>
         <div className="work-space-card__actions">
           {isExpanded ? (

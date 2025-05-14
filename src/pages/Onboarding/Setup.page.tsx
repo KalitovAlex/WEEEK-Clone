@@ -27,7 +27,7 @@ export const SetupPage = () => {
 
   useEffect(() => {
     if (currentStep === 3) {
-      navigate(ROUTES.HOME);
+      navigate(ROUTES.WORKSPACE);
       setItem(SETUP_STEP_KEY, SETUP_STEP.confirmed);
     }
   }, [currentStep, navigate]);

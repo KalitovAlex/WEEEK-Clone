@@ -7,16 +7,28 @@ export const en = {
   surname: "Surname",
   next: "Next",
   unknownError: "Unknown error",
+  select: {
+    placeholder: "Select...",
+  },
   welcome: {
     title: "Welcome to the",
     desc: "One service for working with Tasks, Knowledge Base, CRM and Analytics",
     button: "Start",
+  },
+  workspace: {
+    title: "Configure your",
+    work: "work",
+    desc: "Create your first workspace — a place where you'll collect all your projects, tasks, and documents",
+    name: "Workspace name",
+    loading: "Please wait, loading...",
   },
   setup: {
     title: "Say more about",
     yourself: "yourself",
     help: "These answers will help make WEEEK better",
     peoples: "How many people you will work?",
+    whatDo: "What make you or your team work?",
+    whatRole: "What role do you have?",
   },
   howManyPeopleYouWork: {
     title: "How many people you will work?",

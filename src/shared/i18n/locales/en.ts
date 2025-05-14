@@ -19,6 +19,7 @@ export const en = {
     title: "Configure your",
     work: "work",
     desc: "Create your first workspace — a place where you'll collect all your projects, tasks, and documents",
+    name: "Workspace name",
   },
   setup: {
     title: "Say more about",

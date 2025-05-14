@@ -24,7 +24,7 @@
   color: $text-color;
 
   &:hover {
-    border-color: darken($border-color, 10%);
+    border-color: $border-color, 10%;
   }
 
   &.active {

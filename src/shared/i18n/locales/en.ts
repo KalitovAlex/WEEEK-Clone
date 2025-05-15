@@ -6,6 +6,7 @@ export const en = {
   send: "Send",
   surname: "Surname",
   next: "Next",
+  hidden: "(Hidden: {count})",
   unknownError: "Unknown error",
   select: {
     placeholder: "Select...",

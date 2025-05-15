@@ -49,9 +49,9 @@ export const WorkSpacePage = () => {
             </p>
             <Input
               value={workspaceName}
-              variant="filled"
               className="workspace-page__content__form__input"
-              onChange={(e) => setWorkspaceName(e.target.value)}
+              filled
+              onChange={(e) => setWorkspaceName(e)}
               placeholder={t("workspace.name")}
             />
           </div>

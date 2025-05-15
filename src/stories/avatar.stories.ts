@@ -16,3 +16,10 @@ export const Primary: Story = {
     initials: "AB",
   },
 };
+
+export const RandomColor: Story = {
+  args: {
+    initials: "AB",
+    isRandomColor: true,
+  },
+};

@@ -38,7 +38,15 @@ export const Sidebar = () => {
             className="sidebar__content__projects__header"
             onClick={() => setIsProjectsExpanded((prev) => !prev)}
           >
-            <h3 className={titleClassName}>{t("project.title")}</h3>
+            <h3 className={titleClassName}>
+              {!isSidebarExpanded ? (
+                <p onClick={() => toggleSidebar()}>
+                  {t("project.title").slice(0, 2)}...
+                </p>
+              ) : (
+                t("project.title")
+              )}
+            </h3>
             {isSidebarExpanded && (
               <div className="sidebar__content__projects__header__actions">
                 {!isProjectsExpanded && (

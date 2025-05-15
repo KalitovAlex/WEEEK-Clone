@@ -6,7 +6,6 @@ export const ru = {
   surname: "Фамилия",
   send: "Отправить",
   next: "Продолжить",
-  hidden: "(Скрыто: {count})",
   unknownError: "Неизвестная ошибка",
   welcome: {
     title: "Добро пожаловать в",
@@ -18,6 +17,8 @@ export const ru = {
   },
   project: {
     name: "Проект",
+    title: "Проекты",
+    hidden: "(скрыто: {{count}})",
   },
   setup: {
     title: "Расскажи о",

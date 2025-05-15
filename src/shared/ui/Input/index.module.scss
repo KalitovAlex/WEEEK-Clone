@@ -73,7 +73,11 @@
   &.--filled {
     background-color: $select-color;
     border-radius: 15px;
+    z-index: 999;
     color: black;
+    .input {
+      background-color: transparent !important;
+    }
   }
 
   &.--only-icon {

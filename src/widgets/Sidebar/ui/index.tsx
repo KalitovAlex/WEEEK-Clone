@@ -11,6 +11,7 @@ export const Sidebar = () => {
       <Input
         icon={<Search width={22} height={22} />}
         variant="filled"
+        iconPosition="left"
         placeholder={t("project.name")}
       />
     </div>

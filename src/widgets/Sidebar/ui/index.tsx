@@ -3,13 +3,22 @@ import { useTranslation } from "react-i18next";
 import "./index.scss";
 import { Search } from "lucide-react";
 import { useSidebar } from "@/features/Sidebar/model";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import classNames from "classnames";
+import { boardStore } from "@/features/Boards/model";
+import { Skeleton } from "@/shared/ui/Skeleton";
 
 export const Sidebar = () => {
   const { t } = useTranslation();
   const { isExpanded: isSidebarExpanded, toggleSidebar } = useSidebar();
   const [isProjectsExpanded, setIsProjectsExpanded] = useState(true);
+  const { boards, getBoards, isLoading } = boardStore;
+
+  console.log(boards);
+
+  useEffect(() => {
+    getBoards();
+  }, [getBoards]);
 
   const titleClassName = classNames(
     "sidebar__content__projects__header__title",
@@ -63,6 +72,20 @@ export const Sidebar = () => {
                   alt="add"
                 />
               </div>
+            )}
+          </div>
+          <div className="sidebar__content__projects__boards">
+            {isLoading ? (
+              <Skeleton size="large" />
+            ) : (
+              boards.map((board) => (
+                <div
+                  className="sidebar__content__projects__boards__item"
+                  key={board._id}
+                >
+                  <p>{board.title}</p>
+                </div>
+              ))
             )}
           </div>
         </div>

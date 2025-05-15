@@ -1,0 +1,14 @@
+@use "../../shared/styles/variables.scss" as *;
+
+.main-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+
+  &__content {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    background-color: $select-color;
+  }
+}

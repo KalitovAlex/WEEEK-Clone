@@ -2,14 +2,17 @@
 
 .input {
   width: 100%;
-  padding: 1rem 1.5rem;
+  padding: 0.8rem 1rem;
   transition: 0.2s;
   box-sizing: border-box;
   border: none;
-  font-size: 16px;
+  font-size: 14px;
   background-color: white;
-  transition: 0.2s;
   opacity: 0.8;
+
+  ::placeholder {
+    color: black;
+  }
 
   &:hover {
     opacity: 1;
@@ -44,7 +47,7 @@
   display: flex;
   align-items: center;
   justify-content: start;
-  padding: 0 0.5rem;
+  padding: 0 0.3rem;
   border: none;
   box-sizing: border-box;
   border-radius: 10px;
@@ -67,11 +70,70 @@
     }
   }
 
+  &.--filled {
+    background-color: $select-color;
+    border-radius: 15px;
+    z-index: 999;
+    color: black;
+    .input {
+      background-color: transparent !important;
+    }
+  }
+
+  &.--only-icon {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+
+    &.--disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+
+    .input {
+      display: none !important;
+    }
+
+    .standalone-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+    .input-loader {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+    }
+
+    &.loading {
+      .standalone-icon {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+  }
+
   &__button {
     background: transparent;
     border: none;
     cursor: pointer;
     padding: 0;
+    margin-left: 0.5rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     svg {
       color: #666;
@@ -91,24 +153,30 @@
   pointer-events: none;
   opacity: 0.7;
   transition: all 0.3s ease-in-out;
+  top: 50%;
+  transform: translateY(-50%);
 
   &-left {
     left: 10px;
   }
 
   &-right {
-    right: 50px;
+    right: 10px;
   }
 }
 
 input.has-icon {
   &.icon-left {
     padding-left: 2rem;
-    margin-right: 1rem;
   }
 
   &.icon-right {
     padding-right: 2rem;
-    margin-left: 1rem;
   }
+}
+
+.standalone-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }

@@ -1,0 +1,15 @@
+@use "../../../shared/styles/variables.scss" as *;
+
+.avatar {
+  border-radius: 0.35rem;
+  display: flex;
+  padding: 0.8rem;
+  align-items: center;
+  justify-content: center;
+  background-color: $select-color;
+
+  &__initials {
+    font-size: $small-font;
+    color: $text-color;
+  }
+}

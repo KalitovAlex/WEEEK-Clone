@@ -1,0 +1,59 @@
+@use "../../../../shared/styles/variables.scss" as *;
+
+.work-space-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 58px;
+  background: white;
+  width: $sidebar-expanded-width;
+  border-right: 1px solid $border-color;
+
+  &__actions {
+    position: sticky;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    &__icon {
+      color: $text-color;
+      cursor: pointer;
+      transition: color $transition-duration ease;
+
+      &:hover {
+        color: $primary-color;
+      }
+    }
+  }
+  &__content {
+    display: flex;
+    flex-direction: row;
+    width: $sidebar-expanded-width;
+    margin: 0.5rem;
+    justify-content: space-between;
+    padding: 1 0.5rem;
+    align-items: center;
+    &__left {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 0.5rem;
+    }
+  }
+  &__main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.6rem;
+    height: 100%;
+    &__title {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+    }
+    &__name {
+      font-size: 13px;
+      font-weight: 600;
+    }
+  }
+}

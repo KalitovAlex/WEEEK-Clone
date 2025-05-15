@@ -4,18 +4,14 @@ import { useTranslation } from "react-i18next";
 import { getItem } from "@/shared/utils/localstorage";
 import { WORKSPACE_NAME } from "@/shared/constants/app";
 import { ChevronLeft, Menu } from "lucide-react";
-import { useState } from "react";
+import { useSidebar } from "@/features/Sidebar/model";
 
 export const WorkSpaceCard = () => {
   const { t } = useTranslation();
-  const [isExpanded, setIsExpanded] = useState(true);
+  const { isExpanded, toggleSidebar } = useSidebar();
 
   const handleExpand = () => {
-    const sidebar = document.querySelector(".sidebar");
-    setIsExpanded((prev) => !prev);
-    if (sidebar) {
-      sidebar.classList.toggle("collapsed");
-    }
+    toggleSidebar();
   };
 
   return (

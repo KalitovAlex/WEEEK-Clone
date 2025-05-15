@@ -8,8 +8,11 @@
   border: none;
   font-size: 14px;
   background-color: white;
-  transition: 0.2s;
   opacity: 0.8;
+
+  ::placeholder {
+    color: black;
+  }
 
   &:hover {
     opacity: 1;
@@ -67,6 +70,56 @@
     }
   }
 
+  &.--filled {
+    background-color: $select-color;
+    border-radius: 15px;
+    color: black;
+  }
+
+  &.--only-icon {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+
+    &.--disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+
+    .input {
+      display: none !important;
+    }
+
+    .standalone-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+    .input-loader {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+    }
+
+    &.loading {
+      .standalone-icon {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+  }
+
   &__button {
     background: transparent;
     border: none;
@@ -104,7 +157,7 @@
   }
 
   &-right {
-    right: 50px;
+    right: 10px;
   }
 }
 
@@ -116,4 +169,10 @@ input.has-icon {
   &.icon-right {
     padding-right: 2rem;
   }
+}
+
+.standalone-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }

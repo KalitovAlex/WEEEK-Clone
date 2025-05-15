@@ -1,9 +1,12 @@
 import { Outlet } from "react-router";
+import { SidebarProvider } from "@/features/Sidebar/ui";
 
 export const App = () => {
   return (
     <div>
-      <Outlet />
+      <SidebarProvider>
+        <Outlet />
+      </SidebarProvider>
     </div>
   );
 };

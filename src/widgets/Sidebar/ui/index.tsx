@@ -7,18 +7,25 @@ import { useEffect, useState } from "react";
 import classNames from "classnames";
 import { boardStore } from "@/features/Boards/model";
 import { Skeleton } from "@/shared/ui/Skeleton";
+import { observer } from "mobx-react-lite";
 
-export const Sidebar = () => {
+export const Sidebar = observer(() => {
   const { t } = useTranslation();
   const { isExpanded: isSidebarExpanded, toggleSidebar } = useSidebar();
   const [isProjectsExpanded, setIsProjectsExpanded] = useState(true);
   const { boards, getBoards, isLoading } = boardStore;
 
-  console.log(boards);
-
   useEffect(() => {
     getBoards();
   }, [getBoards]);
+
+  useEffect(() => {
+    if (!isSidebarExpanded) {
+      setIsProjectsExpanded(false);
+    } else {
+      setIsProjectsExpanded(true);
+    }
+  }, [isSidebarExpanded]);
 
   const titleClassName = classNames(
     "sidebar__content__projects__header__title",
@@ -45,7 +52,11 @@ export const Sidebar = () => {
         <div className="sidebar__content__projects">
           <div
             className="sidebar__content__projects__header"
-            onClick={() => setIsProjectsExpanded((prev) => !prev)}
+            onClick={() => {
+              if (isSidebarExpanded) {
+                setIsProjectsExpanded((prev) => !prev);
+              }
+            }}
           >
             <h3 className={titleClassName}>
               {!isSidebarExpanded ? (
@@ -60,7 +71,7 @@ export const Sidebar = () => {
               <div className="sidebar__content__projects__header__actions">
                 {!isProjectsExpanded && (
                   <h3 className="sidebar__content__projects__header__actions__title">
-                    {t("project.hidden", { count: 0 })}
+                    {t("project.hidden", { count: boards.length })}
                   </h3>
                 )}
                 <img
@@ -74,22 +85,24 @@ export const Sidebar = () => {
               </div>
             )}
           </div>
-          <div className="sidebar__content__projects__boards">
-            {isLoading ? (
-              <Skeleton size="large" />
-            ) : (
-              boards.map((board) => (
-                <div
-                  className="sidebar__content__projects__boards__item"
-                  key={board._id}
-                >
-                  <p>{board.title}</p>
-                </div>
-              ))
-            )}
-          </div>
+          {isProjectsExpanded && (
+            <div className="sidebar__content__projects__boards">
+              {isLoading ? (
+                <Skeleton size="large" />
+              ) : (
+                boards.map((board) => (
+                  <div
+                    className="sidebar__content__projects__boards__item"
+                    key={board._id}
+                  >
+                    <p>{board.title}</p>
+                  </div>
+                ))
+              )}
+            </div>
+          )}
         </div>
       </div>
     </div>
   );
-};
+});

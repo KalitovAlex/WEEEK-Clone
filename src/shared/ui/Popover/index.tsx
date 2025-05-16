@@ -1,5 +1,5 @@
 import type { PopoverItem } from "@/shared/types/popover";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./index.scss";
 import classNames from "classnames";
 
@@ -21,6 +21,20 @@ export const Popover = ({
   const itemsClassName = classNames("popover__items", {
     [`popover__items--${placement}`]: placement,
   });
+
+  const handleClickOutside = (event: MouseEvent) => {
+    const popoverElement = document.querySelector(".popover");
+    if (popoverElement && !popoverElement.contains(event.target as Node)) {
+      setIsOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutside);
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
 
   return (
     <div className={`popover ${variant || ""}`}>

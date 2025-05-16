@@ -6,6 +6,11 @@ export const en = {
   send: "Send",
   surname: "Surname",
   next: "Next",
+  rename: "Rename",
+  delete: "Delete",
+  archive: "Archive",
+  dublicate: "Dublicate",
+  toFavorites: "To favorites",
   unknownError: "Unknown error",
   select: {
     placeholder: "Select...",

@@ -37,15 +37,14 @@
 
     &--left {
       top: 50%;
-      right: 100%;
+      right: 110%;
       transform: translateY(-50%);
       margin-right: 8px;
     }
 
     &--right {
-      top: 70%;
-      left: 120%;
-      transform: translateY(-50%);
+      top: 0;
+      left: 115%;
       margin-left: 8px;
     }
   }

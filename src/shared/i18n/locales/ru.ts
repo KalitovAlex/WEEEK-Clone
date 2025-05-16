@@ -6,6 +6,12 @@ export const ru = {
   surname: "Фамилия",
   send: "Отправить",
   next: "Продолжить",
+  rename: "Переименовать",
+  delete: "Удалить",
+  archive: "Архивировать",
+  dublicate: "Дублировать",
+  toFavorites: "В избранное",
+  review: "Обзор",
   unknownError: "Неизвестная ошибка",
   welcome: {
     title: "Добро пожаловать в",

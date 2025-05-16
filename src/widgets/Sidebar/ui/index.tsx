@@ -8,6 +8,7 @@ import classNames from "classnames";
 import { boardStore } from "@/features/Boards/model";
 import { Skeleton } from "@/shared/ui/Skeleton";
 import { observer } from "mobx-react-lite";
+import { BoardCard } from "@/features/Boards";
 
 export const Sidebar = observer(() => {
   const { t } = useTranslation();
@@ -90,14 +91,7 @@ export const Sidebar = observer(() => {
               {isLoading ? (
                 <Skeleton size="large" />
               ) : (
-                boards.map((board) => (
-                  <div
-                    className="sidebar__content__projects__boards__item"
-                    key={board._id}
-                  >
-                    <p>{board.title}</p>
-                  </div>
-                ))
+                boards.map((board) => <BoardCard board={board} />)
               )}
             </div>
           )}

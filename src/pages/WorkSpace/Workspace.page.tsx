@@ -19,6 +19,7 @@ export const WorkSpacePage = () => {
 
   const handleClick = () => {
     setIsLoading(true);
+
     setTimeout(() => {
       setIsLoading(false);
       setItem(WORKSPACE_NAME, workspaceName);

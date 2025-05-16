@@ -8,8 +8,25 @@
   justify-content: center;
   background-color: $select-color;
 
-  &__initials {
+  &--small {
+    padding: 0.4rem;
+    font-size: $xx-small-font;
+    color: white;
+  }
+
+  &--medium {
     font-size: $small-font;
+    padding: 0.5rem;
+    color: white;
+  }
+
+  &--large {
+    font-size: $small-font;
+    padding: 0.8rem;
+    color: white;
+  }
+
+  &__initials {
     color: $text-color;
   }
 }

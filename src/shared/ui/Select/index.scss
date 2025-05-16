@@ -3,6 +3,8 @@
 .select-container {
   position: relative;
   width: 100%;
+  justify-content: center;
+  align-items: center;
   font-size: $x-small-font;
   user-select: none;
   margin-top: 1rem;
@@ -70,6 +72,11 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
   z-index: 100;
+
+  &.filled {
+    background-color: $select-color;
+    border: none;
+  }
 }
 
 .select-option {

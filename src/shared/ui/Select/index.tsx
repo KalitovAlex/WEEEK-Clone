@@ -50,17 +50,19 @@ export const Select = ({
   return (
     <div className={`select-container ${size}`} ref={selectRef}>
       <div
-        className={`select-button ${isOpen ? "active" : ""}`}
+        className={`select-button ${isOpen ? "active" : ""} ${
+          variant === "filled" ? "filled" : ""
+        }`}
         onClick={() => setIsOpen(!isOpen)}
       >
         <span>{selectedOption ? selectedOption.label : placeholder}</span>
         <span className="select-arrow">
-          <ChevronDown scale={0.3} className={isOpen ? "active" : ""} />
+          <ChevronDown scale={0.25} className={isOpen ? "active" : ""} />
         </span>
       </div>
 
       {isOpen && (
-        <div className="select-dropdown">
+        <div className={`select-dropdown ${variant}`}>
           {options.map((option) => (
             <div
               key={option.value}

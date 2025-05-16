@@ -9,6 +9,7 @@ interface PopoverProps {
   items: PopoverItem[];
   placement?: "top" | "bottom" | "left" | "right";
   onStateChange?: (isOpen: boolean) => void;
+  onClick?: (event: MouseEvent) => void;
 }
 
 export const Popover = ({
@@ -44,7 +45,8 @@ export const Popover = ({
     <div className={`popover ${variant || ""}`}>
       <div
         className="popover__trigger"
-        onClick={() => {
+        onClick={(e) => {
+          e.stopPropagation();
           setIsOpen(!isOpen);
           onStateChange?.(!isOpen);
         }}
@@ -57,7 +59,8 @@ export const Popover = ({
             <div
               key={item.value}
               className="popover__item"
-              onClick={() => {
+              onClick={(e) => {
+                e.stopPropagation();
                 item.onClick?.();
                 setIsOpen(false);
                 onStateChange?.(false);

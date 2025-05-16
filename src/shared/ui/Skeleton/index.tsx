@@ -11,5 +11,5 @@ export const Skeleton = ({ size = "medium" }: SkeletonProps) => {
     medium: "skeleton--medium",
     large: "skeleton--large",
   };
-  return <div className={sizeClass[size]}></div>;
+  return <div className={`skeleton ${sizeClass[size]}`}></div>;
 };

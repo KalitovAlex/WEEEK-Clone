@@ -63,7 +63,7 @@ export const BoardCard = ({ board }: BoardCardProps) => {
         <Popover items={items} onStateChange={handleStateChange}>
           <LucideEllipsis
             className={classNames("board-card__actions__icon", {
-              "board-card__actions__icon--active": !isOpen,
+              "board-card__actions__icon--active": isOpen,
             })}
           />
         </Popover>

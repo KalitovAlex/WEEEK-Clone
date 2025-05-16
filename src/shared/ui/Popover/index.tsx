@@ -28,7 +28,7 @@ export const Popover = ({
     const popoverElement = document.querySelector(".popover");
     if (popoverElement && !popoverElement.contains(event.target as Node)) {
       setIsOpen(false);
-      onStateChange?.(false);
+      onStateChange?.(isOpen);
     }
   };
 
@@ -46,7 +46,7 @@ export const Popover = ({
         className="popover__trigger"
         onClick={() => {
           setIsOpen(!isOpen);
-          onStateChange?.(isOpen);
+          onStateChange?.(!isOpen);
         }}
       >
         {children}

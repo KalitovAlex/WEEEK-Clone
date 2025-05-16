@@ -9,6 +9,7 @@ import { boardStore } from "@/features/Boards/model";
 import { Skeleton } from "@/shared/ui/Skeleton";
 import { observer } from "mobx-react-lite";
 import { BoardCard } from "@/features/Boards";
+import { Popover } from "@/shared/ui/Popover";
 
 export const Sidebar = observer(() => {
   const { t } = useTranslation();
@@ -75,14 +76,16 @@ export const Sidebar = observer(() => {
                     {t("project.hidden", { count: boards.length })}
                   </h3>
                 )}
-                <img
-                  onClick={(e) => {
-                    e.stopPropagation();
-                  }}
-                  className="sidebar__content__projects__header__actions__add"
-                  src="/add.svg"
-                  alt="add"
-                />
+                <Popover items={[]}>
+                  <img
+                    onClick={(e) => {
+                      e.stopPropagation();
+                    }}
+                    className="sidebar__content__projects__header__actions__add"
+                    src="/add.svg"
+                    alt="add"
+                  />
+                </Popover>
               </div>
             )}
           </div>

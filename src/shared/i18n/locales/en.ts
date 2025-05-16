@@ -30,8 +30,13 @@ export const en = {
   },
   project: {
     name: "Project",
+    new: "New Project",
     title: "Projects",
     hidden: "(hidden: {{count}})",
+  },
+  folder: {
+    name: "Folder",
+    new: "New Folder",
   },
   setup: {
     title: "Say more about",

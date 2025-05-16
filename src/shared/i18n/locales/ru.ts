@@ -25,6 +25,7 @@ export const ru = {
     name: "Проект",
     title: "Проекты",
     hidden: "(скрыто: {{count}})",
+    new: "Новый проект",
   },
   setup: {
     title: "Расскажи о",
@@ -33,6 +34,10 @@ export const ru = {
     peoples: "Со сколькими людьми ты будешь работать?",
     whatDo: "Чем ты или твоя команда занимаетесь?",
     whatRole: "Какая у тебя роль?",
+  },
+  folder: {
+    name: "Папка",
+    new: "Новая папка",
   },
   workspace: {
     title: "Настрой свою",

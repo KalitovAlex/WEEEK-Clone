@@ -20,7 +20,7 @@ export const Button = ({
 }) => {
   return (
     <button
-      className={`button ${variant} ${size}`}
+      className={`button ${variant} ${size} ${disabled ? "disabled" : ""}`}
       type={type}
       onClick={onClick}
       disabled={disabled}

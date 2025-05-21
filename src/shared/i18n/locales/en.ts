@@ -6,6 +6,12 @@ export const en = {
   send: "Send",
   surname: "Surname",
   next: "Next",
+  create: "Create",
+  rename: "Rename",
+  delete: "Delete",
+  archive: "Archive",
+  dublicate: "Dublicate",
+  toFavorites: "To favorites",
   unknownError: "Unknown error",
   select: {
     placeholder: "Select...",
@@ -25,8 +31,14 @@ export const en = {
   },
   project: {
     name: "Project",
+    new: "New Project",
     title: "Projects",
+    create: "Create",
     hidden: "(hidden: {{count}})",
+  },
+  folder: {
+    name: "Folder",
+    new: "New Folder",
   },
   setup: {
     title: "Say more about",

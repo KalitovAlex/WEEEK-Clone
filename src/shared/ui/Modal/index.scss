@@ -1,0 +1,92 @@
+@use "../../styles/variables.scss" as *;
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+
+  &__content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    min-width: 300px;
+    max-width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    animation: slideIn 0.3s ease;
+  }
+
+  &__separator {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    height: 1px;
+    background-color: #e0e0e0;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+
+  &__close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    color: #666;
+    transition: color 0.2s;
+
+    &:hover {
+      color: $primary-color;
+      .svg {
+        fill: $primary-color;
+      }
+    }
+  }
+
+  &__body {
+    position: relative;
+    padding-top: 10px;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

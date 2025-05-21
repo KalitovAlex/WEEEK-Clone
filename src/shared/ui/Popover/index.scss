@@ -13,14 +13,14 @@
 
   &__items {
     position: absolute;
+    padding: 3px;
     min-width: 150px;
     background: white;
+    border-radius: 5px;
     border: 1px solid #e0e0e0;
-    border-radius: 4px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
     z-index: 1000;
 
-    // Базовое позиционирование
     &--top {
       bottom: 100%;
       left: 50%;
@@ -37,32 +37,37 @@
 
     &--left {
       top: 50%;
-      right: 100%;
+      right: 110%;
       transform: translateY(-50%);
       margin-right: 8px;
     }
 
     &--right {
-      top: 50%;
-      left: 100%;
-      transform: translateY(-50%);
+      top: 0;
+      left: 115%;
       margin-left: 8px;
     }
   }
 
   &__item {
-    padding: 8px 12px;
+    padding: 6px 12px;
     cursor: pointer;
     display: flex;
     align-items: center;
     gap: 8px;
+    font-size: 14px;
+    color: $text-color;
+    text-wrap: nowrap;
+    white-space: nowrap;
 
     &:hover {
-      background-color: #f5f5f5;
+      background-color: $select-color;
     }
 
     &-icon {
       display: flex;
+      width: 20px;
+      height: 20px;
       align-items: center;
     }
   }

@@ -3,4 +3,5 @@ export interface PopoverItem {
   value: string;
   icon?: React.ReactNode;
   onClick?: () => void;
+  variant?: "default" | "danger";
 }

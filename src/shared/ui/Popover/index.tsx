@@ -1,5 +1,5 @@
 import type { PopoverItem } from "@/shared/types/popover";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./index.scss";
 import classNames from "classnames";
 
@@ -8,6 +8,8 @@ interface PopoverProps {
   variant?: "filled" | "default";
   items: PopoverItem[];
   placement?: "top" | "bottom" | "left" | "right";
+  onStateChange?: (isOpen: boolean) => void;
+  onClick?: (event: MouseEvent) => void;
 }
 
 export const Popover = ({
@@ -15,6 +17,7 @@ export const Popover = ({
   variant,
   items,
   placement = "right",
+  onStateChange,
 }: PopoverProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -22,9 +25,32 @@ export const Popover = ({
     [`popover__items--${placement}`]: placement,
   });
 
+  const handleClickOutside = (event: MouseEvent) => {
+    const popoverElement = document.querySelector(".popover");
+    if (popoverElement && !popoverElement.contains(event.target as Node)) {
+      setIsOpen(false);
+      onStateChange?.(isOpen);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutside);
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <div className={`popover ${variant || ""}`}>
-      <div className="popover__trigger" onClick={() => setIsOpen(!isOpen)}>
+      <div
+        className="popover__trigger"
+        onClick={(e) => {
+          e.stopPropagation();
+          setIsOpen(!isOpen);
+          onStateChange?.(!isOpen);
+        }}
+      >
         {children}
       </div>
       {isOpen && (
@@ -33,9 +59,11 @@ export const Popover = ({
             <div
               key={item.value}
               className="popover__item"
-              onClick={() => {
+              onClick={(e) => {
+                e.stopPropagation();
                 item.onClick?.();
                 setIsOpen(false);
+                onStateChange?.(false);
               }}
             >
               {item.icon && (

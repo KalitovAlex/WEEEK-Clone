@@ -112,9 +112,17 @@ export const Sidebar = observer(() => {
       <Modal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
-        title={modalType === ModalType.project ? "New Project" : "New Folder"}
+        title={
+          modalType === ModalType.project ? t("project.new") : t("folder.new")
+        }
       >
-        <div>Modal</div>
+        <div className="sidebar__modal">
+          <Input
+            label={t("project.name")}
+            filled
+            placeholder={t("project.name")}
+          />
+        </div>
       </Modal>
     </div>
   );

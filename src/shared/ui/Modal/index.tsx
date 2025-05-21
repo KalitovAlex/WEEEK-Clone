@@ -48,11 +48,15 @@ export const Modal = ({
         {customHeader || (
           <div className="modal__header">
             {title && <h2 className="modal__title">{title}</h2>}
-            <button className="modal__close" onClick={onClose}>
-              ×
-            </button>
+            <img
+              onClick={onClose}
+              src="/x.svg"
+              alt="close"
+              className="modal__close"
+            />
           </div>
         )}
+        <div className="modal__separator"></div>
         <div className="modal__body">{children}</div>
       </div>
     </div>

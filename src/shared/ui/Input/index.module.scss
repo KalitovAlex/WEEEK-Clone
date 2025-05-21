@@ -2,7 +2,7 @@
 
 .input {
   width: 100%;
-  padding: 0.8rem 1rem;
+  padding: 0.8rem 0.5rem;
   transition: 0.2s;
   box-sizing: border-box;
   border: none;
@@ -40,6 +40,12 @@
     outline: none;
     opacity: 1;
   }
+}
+
+.input-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .input-wrapper {

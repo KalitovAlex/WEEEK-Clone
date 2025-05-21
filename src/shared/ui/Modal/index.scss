@@ -1,3 +1,5 @@
+@use "../../styles/variables.scss" as *;
+
 .modal {
   position: fixed;
   top: 0;
@@ -23,6 +25,14 @@
     animation: slideIn 0.3s ease;
   }
 
+  &__separator {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    height: 1px;
+    background-color: #e0e0e0;
+  }
+
   &__header {
     display: flex;
     justify-content: space-between;
@@ -32,7 +42,7 @@
 
   &__title {
     margin: 0;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 600;
   }
 
@@ -42,16 +52,22 @@
     font-size: 24px;
     cursor: pointer;
     padding: 0;
+    width: 20px;
+    height: 20px;
     color: #666;
     transition: color 0.2s;
 
     &:hover {
-      color: #000;
+      color: $primary-color;
+      .svg {
+        fill: $primary-color;
+      }
     }
   }
 
   &__body {
     position: relative;
+    padding-top: 10px;
   }
 }
 

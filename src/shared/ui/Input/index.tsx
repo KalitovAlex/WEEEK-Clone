@@ -31,6 +31,7 @@ interface InputProps
   filled?: boolean;
   loading?: boolean;
   onlyIcon?: boolean;
+  label?: string;
 }
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
@@ -55,6 +56,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       disabled,
       readOnly,
       placeholder,
+      label,
       ...rest
     },
     ref
@@ -97,6 +99,10 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       [styles.loading]: loading && onlyIcon,
     });
 
+    const contentCls = classNames(styles["input-content"], {
+      [styles["--error"]]: error,
+    });
+
     const inputCls = classNames(styles.input, inputClassName, {
       [styles["has-icon"]]: (iconLeft || iconRight) && !onlyIcon,
       [styles["icon-left"]]: iconLeft && !onlyIcon,
@@ -125,77 +131,82 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     };
 
     return (
-      <div
-        className={wrapperCls}
-        style={wrapperStyle}
-        onClick={onlyIcon ? handleWrapperClick : undefined}
-        role={onlyIcon ? "button" : undefined}
-        tabIndex={onlyIcon && !disabled ? 0 : undefined}
-        onKeyDown={onlyIcon && !disabled ? handleWrapperKeyDown : undefined}
-        aria-disabled={onlyIcon && disabled ? true : undefined}
-      >
-        {loading && <Loader />}
+      <div className={contentCls}>
+        {label && <label htmlFor={rest.id || generatedId}>{label}</label>}
+        <div
+          className={wrapperCls}
+          style={wrapperStyle}
+          onClick={onlyIcon ? handleWrapperClick : undefined}
+          role={onlyIcon ? "button" : undefined}
+          tabIndex={onlyIcon && !disabled ? 0 : undefined}
+          onKeyDown={onlyIcon && !disabled ? handleWrapperKeyDown : undefined}
+          aria-disabled={onlyIcon && disabled ? true : undefined}
+        >
+          {loading && <Loader />}
 
-        {onlyIcon ? (
-          chosenIconForOnlyMode && (
-            <span className={styles["standalone-icon"]}>
-              {chosenIconForOnlyMode}
-            </span>
-          )
-        ) : (
-          <>
-            {iconLeft && (
-              <span
-                className={classNames(
-                  styles["input-icon"],
-                  styles["input-icon-left"]
-                )}
-              >
-                {iconLeft}
+          {onlyIcon ? (
+            chosenIconForOnlyMode && (
+              <span className={styles["standalone-icon"]}>
+                {chosenIconForOnlyMode}
               </span>
-            )}
-            <input
-              id={rest.id || generatedId}
-              ref={ref}
-              placeholder={placeholder}
-              {...rest}
-              value={currentVal}
-              onChange={handleChange}
-              onFocus={onFocus}
-              onBlur={onBlur}
-              disabled={disabled || loading}
-              readOnly={readOnly}
-              className={inputCls}
-            />
-            {!loading &&
-              !disabled &&
-              currentVal &&
-              clearable &&
-              !addonRight && (
-                <button
-                  type="button"
-                  className={styles["input-wrapper__button"]}
-                  onClick={handleClear}
-                  aria-label="Clear input"
+            )
+          ) : (
+            <>
+              {iconLeft && (
+                <span
+                  className={classNames(
+                    styles["input-icon"],
+                    styles["input-icon-left"]
+                  )}
                 >
-                  <X size={18} />
-                </button>
+                  {iconLeft}
+                </span>
               )}
-            {iconRight && !clearable && !addonRight && (
-              <span
-                className={classNames(
-                  styles["input-icon"],
-                  styles["input-icon-right"]
+              <input
+                id={rest.id || generatedId}
+                ref={ref}
+                placeholder={placeholder}
+                {...rest}
+                value={currentVal}
+                onChange={handleChange}
+                onFocus={onFocus}
+                onBlur={onBlur}
+                disabled={disabled || loading}
+                readOnly={readOnly}
+                className={inputCls}
+              />
+              {!loading &&
+                !disabled &&
+                currentVal &&
+                clearable &&
+                !addonRight && (
+                  <button
+                    type="button"
+                    className={styles["input-wrapper__button"]}
+                    onClick={handleClear}
+                    aria-label="Clear input"
+                  >
+                    <X size={18} />
+                  </button>
                 )}
-              >
-                {iconRight}
-              </span>
-            )}
-            {addonRight && (
-              <div className={styles["input-wrapper__addon"]}>{addonRight}</div>
-            )}
-          </>
-        )}
+              {iconRight && !clearable && !addonRight && (
+                <span
+                  className={classNames(
+                    styles["input-icon"],
+                    styles["input-icon-right"]
+                  )}
+                >
+                  {iconRight}
+                </span>
+              )}
+              {addonRight && (
+                <div className={styles["input-wrapper__addon"]}>
+                  {addonRight}
+                </div>
+              )}
+            </>
+          )}
+        </div>
       </div>
     );
   }

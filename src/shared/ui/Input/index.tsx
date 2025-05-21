@@ -132,7 +132,14 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
 
     return (
       <div className={contentCls}>
-        {label && <label htmlFor={rest.id || generatedId}>{label}</label>}
+        {label && (
+          <label
+            className={styles["input-label"]}
+            htmlFor={rest.id || generatedId}
+          >
+            {label}
+          </label>
+        )}
         <div
           className={wrapperCls}
           style={wrapperStyle}

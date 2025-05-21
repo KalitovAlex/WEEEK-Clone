@@ -6,6 +6,7 @@ export const en = {
   send: "Send",
   surname: "Surname",
   next: "Next",
+  create: "Create",
   rename: "Rename",
   delete: "Delete",
   archive: "Archive",
@@ -32,6 +33,7 @@ export const en = {
     name: "Project",
     new: "New Project",
     title: "Projects",
+    create: "Create",
     hidden: "(hidden: {{count}})",
   },
   folder: {

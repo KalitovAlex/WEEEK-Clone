@@ -12,6 +12,7 @@ import { BoardCard } from "@/features/Boards";
 import { Popover } from "@/shared/ui/Popover";
 import { ModalType, projectItems } from "../model/Items";
 import { Modal } from "@/shared/ui/Modal";
+import { Button } from "@/shared/ui/Button";
 
 export const Sidebar = observer(() => {
   const { t } = useTranslation();
@@ -122,6 +123,9 @@ export const Sidebar = observer(() => {
             filled
             placeholder={t("project.name")}
           />
+          <div className="sidebar__modal__actions">
+            <Button>{t("create")}</Button>
+          </div>
         </div>
       </Modal>
     </div>

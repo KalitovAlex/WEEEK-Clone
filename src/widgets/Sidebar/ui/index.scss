@@ -16,8 +16,16 @@
 
   &__modal {
     min-width: 33vw;
-    padding: 0 0.5rem;
+    margin-top: 0.4rem;
+    padding: 0 0.2rem;
     box-sizing: border-box;
+
+    &__actions {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: end;
+      margin-top: 0.9rem;
+    }
   }
 
   &.collapsed {

@@ -5,6 +5,7 @@ export const ru = {
   name: "Имя",
   surname: "Фамилия",
   send: "Отправить",
+  create: "Создать",
   next: "Продолжить",
   rename: "Переименовать",
   delete: "Удалить",
@@ -38,6 +39,7 @@ export const ru = {
   folder: {
     name: "Папка",
     new: "Новая папка",
+    create: "Создать",
   },
   workspace: {
     title: "Настрой свою",

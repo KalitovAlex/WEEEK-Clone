@@ -6,16 +6,25 @@
 
   color: #fff;
   padding: 12px 20px;
-  border-radius: 10px;
+  border-radius: 8px;
   padding: 0.7rem 3rem;
   cursor: pointer;
   border: none;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
   transition: all 0.3s ease;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  &.disabled {
+    background-color: $select-color;
+    cursor: not-allowed;
+    color: $border-color;
+    &:hover {
+      background-color: $select-color;
+    }
+  }
 
   &:hover {
     background-color: color.scale($primary-color, $lightness: 10%);

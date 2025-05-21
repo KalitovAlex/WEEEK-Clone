@@ -10,12 +10,15 @@ import { Skeleton } from "@/shared/ui/Skeleton";
 import { observer } from "mobx-react-lite";
 import { BoardCard } from "@/features/Boards";
 import { Popover } from "@/shared/ui/Popover";
-import { projectItems } from "../model/Items";
+import { ModalType, projectItems } from "../model/Items";
+import { Modal } from "@/shared/ui/Modal";
 
 export const Sidebar = observer(() => {
   const { t } = useTranslation();
   const { isExpanded: isSidebarExpanded, toggleSidebar } = useSidebar();
   const [isProjectsExpanded, setIsProjectsExpanded] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalType, setModalType] = useState<ModalType | null>(null);
   const { boards, getBoards, isLoading } = boardStore;
 
   useEffect(() => {
@@ -37,6 +40,11 @@ export const Sidebar = observer(() => {
         !isProjectsExpanded,
     }
   );
+
+  const handleClick = (type: ModalType) => {
+    setIsModalOpen(true);
+    setModalType(type);
+  };
 
   return (
     <div className={`sidebar ${isSidebarExpanded ? "expanded" : "collapsed"}`}>
@@ -77,7 +85,10 @@ export const Sidebar = observer(() => {
                     {t("project.hidden", { count: boards.length })}
                   </h3>
                 )}
-                <Popover placement="bottom" items={projectItems()}>
+                <Popover
+                  placement="bottom"
+                  items={projectItems({ onClick: handleClick })}
+                >
                   <img
                     className="sidebar__content__projects__header__actions__add"
                     src="/add.svg"
@@ -98,6 +109,13 @@ export const Sidebar = observer(() => {
           )}
         </div>
       </div>
+      <Modal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        title={modalType === ModalType.project ? "New Project" : "New Folder"}
+      >
+        <div>Modal</div>
+      </Modal>
     </div>
   );
 });

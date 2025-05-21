@@ -14,5 +14,18 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     children: "Modal",
+    isOpen: true,
+    onClose: () => {},
+    title: "Modal",
+  },
+};
+
+export const WithCustomHeader: Story = {
+  args: {
+    children: "Modal",
+    isOpen: true,
+    onClose: () => {},
+    title: "Modal",
+    customHeader: <div>Custom Header</div>,
   },
 };

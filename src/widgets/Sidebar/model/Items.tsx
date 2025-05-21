@@ -1,14 +1,23 @@
 import i18n from "@/shared/i18n";
 import { LucideFolderPlus, LucidePlus } from "lucide-react";
 
-export const projectItems = () => {
+export enum ModalType {
+  project = "project",
+  folder = "folder",
+}
+
+export const projectItems = ({
+  onClick,
+}: {
+  onClick: (type: ModalType) => void;
+}) => {
   return [
     {
       label: i18n.t("project.new"),
       icon: <LucidePlus />,
       value: "new-project",
       onClick: () => {
-        console.log("new-project");
+        onClick(ModalType.project);
       },
     },
     {
@@ -16,7 +25,7 @@ export const projectItems = () => {
       icon: <LucideFolderPlus />,
       value: "new-folder",
       onClick: () => {
-        console.log("new-folder");
+        onClick(ModalType.folder);
       },
     },
   ];

@@ -5,7 +5,14 @@ export const ru = {
   name: "Имя",
   surname: "Фамилия",
   send: "Отправить",
+  create: "Создать",
   next: "Продолжить",
+  rename: "Переименовать",
+  delete: "Удалить",
+  archive: "Архивировать",
+  dublicate: "Дублировать",
+  toFavorites: "В избранное",
+  review: "Обзор",
   unknownError: "Неизвестная ошибка",
   welcome: {
     title: "Добро пожаловать в",
@@ -19,6 +26,7 @@ export const ru = {
     name: "Проект",
     title: "Проекты",
     hidden: "(скрыто: {{count}})",
+    new: "Новый проект",
   },
   setup: {
     title: "Расскажи о",
@@ -27,6 +35,11 @@ export const ru = {
     peoples: "Со сколькими людьми ты будешь работать?",
     whatDo: "Чем ты или твоя команда занимаетесь?",
     whatRole: "Какая у тебя роль?",
+  },
+  folder: {
+    name: "Папка",
+    new: "Новая папка",
+    create: "Создать",
   },
   workspace: {
     title: "Настрой свою",
